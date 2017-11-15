@@ -27,6 +27,25 @@ https://www.schoolofnet.com/curso-orientacao-objetos-com-javascript-es5/
 
 ## <a name="parte1">Introdução</a>
 
+Queremos apresentar o novo paradigma do JavaScript, a Orientação a objetos.
+
+Ao acompanhar este conteúdo, você aprenderá os principais pilares que esse paradigma nos traz e como podemos aplicá-lo, na prática, no Javascript.
+
+Mostraremos as principais diferenças em relação as outras linguagens que possuem o suporte a orientação a objetos e a importância de se programar utilizando esta estrutura.
+
+Você entenderá como funciona uma classe e como ela é constituída com seus métodos e atributos.
+
+Falaremos sobre:
+
+1 - Encapsulamento  
+2 - Construtores  
+3 - Modificadores de acesso  
+4 - Herança  
+5 - Polimorfismo.  
+
+Além de todos estes tópicos, focaremos bastante no processo de criação com prototype.
+
+Seja bem-vindo a mais um conteúdo da School Of Net.
 
 [Voltar ao Índice](#indice)
 
