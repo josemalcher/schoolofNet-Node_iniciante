@@ -53,6 +53,36 @@ Seja bem-vindo a mais um conteúdo da School Of Net.
 
 ## <a name="parte2">Review sobre ambiente</a>
 
+Neste módulo falaremos sobre o ambiente que teremos para desenvolver o tema proposto.
+
+O ambiente será o mais simples possível, não existindo nenhuma dificuldade em ser criado.
+
+Utilizaremos o http-server como servidor web, que é um pacote disponível no npm. Com este pacote conseguimos criar um servidor web em qualquer local, dentro de uma porta específica, para que possamos rodar aplicações.
+
+Caso prefira utilizar outro servidor web, fique a vontade. Você pode utilizar os seguintes servidores:
+
+1- Servidor embutido do Python  
+2- Servidor embutido do PHP  
+3- Apache ou Nginx  
+
+Para utilizar o http-server será necessário a instalação do Node.js que já vem com o npm como dependência, em sua instalação. Para instalar o Node.js acesse o link abaixo que você encontrará o download para todas as plataformas.
+
+https://nodejs.org/en/download/
+
+Caso você decida utilizar o http-server, após a instalação do npm, abra o terminal e rode o comando abaixo:
+
+```
+npm install http-server -g
+```
+
+Além do servidor web, necessitaremos de um browser. Você pode utilizar qualquer browser que possua suporte ao JavaScript.
+
+Para desenvolver o código, utilizaremos o editor Visual Studio Code, que está disponível no link abaixo, para todas as plataformas:
+
+https://code.visualstudio.com/
+
+Sempre aconselhamos o download da versão LTS(Long-term support), para evitar problemas de compatibilidade com algumas bibliotecas. Você poderá instalar a versão current, caso queira.
+
 
 [Voltar ao Índice](#indice)
 
