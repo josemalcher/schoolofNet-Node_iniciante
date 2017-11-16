@@ -939,6 +939,194 @@ Sempre utilize modificador de acesso para proteger dados que necessitem de segur
 
 ## <a name="parte10">Prototype object</a>
 
+O prototype é um dos pilares que constitui a orientação a objetos. É um recurso particular do JavaScript.
+
+Falaremos sobre este recurso e como podemos tirar proveito dele.
+
+Lembrando do método construtor que mostramos no oitavo módulo, o método initialize precisaria ser executado a cada objeto instanciado para que os dados fossem inclusos na inicialização da classe.
+
+Veja exemplo abaixo:
+```
+var object1 = new Person('object1', 23, 1.76)
+object1.initialize()
+var object2 = new Person('object2', 30, 1.63)
+object2.initialize()
+var object3 = new Person('object3', 27, 1.70)
+object3.initialize()
+```
+
+Assim, podemos ver que se fossem muitos objetos, teríamos que reservar muito espaço na memória do sistema.
+
+Todo objeto instanciado ou classe criada, possui o prototype nativamente. Para verificar, basta adicionar o código abaixo em seu projeto e abrir o console do navegador.
+
+```
+var object1 = new Person('object1', 23, 1.76)
+
+console.log(object1.__proto__);
+console.log(Person.prototype);
+```
+
+Observe que podemos acessar o prototype através do objeto com alias proto ou através da classe, acessando diretamente o prototype. Ambos mostraram o mesmo resultado.
+```
+// Através do objeto com __proto__
+> constructor:ƒ Person(_name, _age, _height)
+> __proto__:Object
+
+// Através da classe com prototype
+> constructor:ƒ Person(_name, _age, _height)
+> __proto__:Object
+```
+
+Isso quer dizer que só possuímos um método registrado no prototype, que é o construtor.
+
+Para melhorar esta prática, podemos utilizar o prototype incluindo métodos a todos os objetos instanciados de uma só vez, independente da quantidade existente. Para incluir um método a qualquer objeto da classe, basta executar o código abaixo:
+
+```
+Person.prototype.initialize = function initialize(){
+    console.log('initialize with prototype')
+}
+
+var object1 = new Person('Leonan', 23, 1.76)
+var object2 = new Person('Leonan', 23, 1.76)
+var object3 = new Person('Leonan', 23, 1.76)
+```
+
+Após adicionar a primeira linha, podemos analisar o console novamente e teremos em todos os objetos a função initialize dentro de cada objeto, ou seja, não será preciso alocar mais memória, uma vez que podemos aproveitar o espaço que já foi reservado ao objeto, pois a função está alocada dentro do mesmo.
+
+No console teremos o seguinte resultado para os três objetos:
+
+```
+{initialize: ƒ, constructor: ƒ}
+> initialize:ƒ initialize()
+> constructor:ƒ Person(_name, _age, _height)
+> __proto__:Object
+```
+
+Isso significa que agora podemos acessar o método initialize no prototype do objeto, sem precisar acessar o método initialize da classe Person.
+
+Veja o exemplo:
+```
+object1.__proto__.initialize()
+object2.__proto__.initialize()
+object3.__proto__.initialize()
+```
+
+O resultado ao acionarmos o método initialize da classe será o mesmo de acessar via prototype, porém com prototype ganhamos produtividade e performance. Estendemos uma determinada propriedade para qualquer objeto instanciado, aplicando apenas uma vez o método à classe.
+
+Outra vantagem está ao comparar o uso do prototype com métodos estáticos.
+
+```
+Person.myStaticFunc = function(){
+    console.log('Static method');
+}
+
+Person.prototype.myProtoFunc = function(){
+    console.log('Prototype method');
+}
+
+var object1 = new Person('Leonan', 23, 1.76)
+
+object1.myProtoFunc();
+object1.myStaticFunc();
+```
+
+Veja que não temos acesso ao método estático através do objeto instanciado, porém o prototype nos permite este acesso.
+
+O prototype, além de todas as vantagens mencionadas, nos permite trabalhar com herança, que é um dos pilares mais importantes da programação orientada a objetos.
+
+Falaremos sobre herança no próximo módulo.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Construtor</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificadores de Acesso</title>
+</head>
+<body>
+<p>Ver Log's</p>
+<script>
+    function Person(_name, _age, _height) {
+        var name   = _name;
+        var age    = _age;
+        var height = _height;
+
+        this.initialize  = function () {
+            console.log('FUNÇÃO initialize ')
+        }
+
+        function funcaoPrivada() {
+            console.log('Exemplo de Função Privada')
+        }
+
+        this.sayHello = function (name) {
+            console.log('Hello ' + name)
+        }
+
+        this.getName = function getName() {
+            return name
+        }
+
+        this.setName = function setName(_name) {
+            name = _name
+        }
+
+        this.getAge = function () {
+            return age
+        }
+
+        this.setAge = function (_age) {
+            age = _age
+        }
+
+        this.getHeight = function getHeight() {
+            return height
+        }
+
+        this.setHeight = function setHeight(_height) {
+            height = _height
+        }
+    }
+
+    Person.static_method = function () {
+        console.log('AQUI é um Métdo Estático!')
+    }
+    Person.static_method();
+
+    Person.static_atributo = 'Meu Atributo Statico';
+
+    Person.prototype.minhaProtoFunc = function () {
+        console.log('Minha primeira FUNÇÃO PROTOTYPE ')
+    }
+
+    console.log(Person.static_atributo);
+
+    console.log(new Person())
+
+    var jose = new Person('José Malcher', 33, 1.75)
+    jose.sayHello(jose.getName())
+    console.log(jose)
+    console.log(jose.name) // propriedade é privada!
+    console.log(jose.funcaoPrivada)// private
+
+    console.log(jose.__proto__)
+    console.log(Person.prototype)
+
+    jose.minhaProtoFunc();
+
+</script>
+</body>
+</html>
+</body>
+</html>
+```
 
 [Voltar ao Índice](#indice)
 
