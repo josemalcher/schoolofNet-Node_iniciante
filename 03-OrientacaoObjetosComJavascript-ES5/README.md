@@ -147,6 +147,83 @@ A partir de agora comentaremos os principais conceitos e, dentro de exemplos pr�
 
 ## <a name="parte4">Iniciando com classes</a>
 
+Para começar a praticar, crie uma pasta em sua máquina. O nome que escolhemos para a pasta foi oop_js_es5.
+
+Abra esta pasta dentro do seu editor de texto, estamos trabalahndo com Visual Studio Code. Crie um arquivo chamado index.html, com o código abaixo:
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>OOP Javascript</p>
+    <script>
+
+    </script>
+</body>
+</html>
+
+```
+
+Depois, abra o terminal e acesse a pasta do projeto.
+
+Dentro da pasta rode o comando abaixo para subir o servidor:
+
+###http-server
+
+Você deverá obter o seguinte resultado:
+
+```
+valls@mac-3 oop_js_es5 $ http-server
+Starting up http-server, serving ./
+Available on:
+  http://127.0.0.1:8080
+  http://192.168.0.2:8080
+  http://192.168.0.9:8080
+  
+```
+
+Em seguida, basta acessar o endereço http://localhost:8080/ em seu navegador e conferir a página sendo renderizada, corretamente. Caso tenha o texto OPP Javascript sendo renderizado no navegador, significa que o ambiente está configurado e pronto para iniciar com a criação da primeira classe de exemplo.
+
+Devemos criar uma classe que, de preferência seja única, para representar o nosso objeto. Não faz sentido termos duas classes com o mesmo nome em um projeto.
+
+Uma classe definirá o comportamento de um objeto através de, ações e características ou métodos e atributos, em uma linguagem mais científica e computacional.
+
+Cada atributo conterá um valor específico e cada método uma lógica de processamento específica, para cada objeto derivado desta classe. Podemos ter vários objetos instanciados de uma mesma classe e cada objeto terá dados próprios, apesar de serem instâncias de uma mesma classe.
+
+O JavaScript trabalha de uma forma diferente das demais linguagens quando se trata de criação de classes. Na versão ES6 e nas futuras versões, você encontrará estruturas mais familiares às demais linguagens. Na versão ES5 o JavaScript ainda possui uma estrutura muito característica para trabalhar com classes.
+
+No JavaScript utilizamos sempre uma função para criar uma classe. Veja os três exemplos mais simples e mais utilizados para a criação:
+
+```javascript
+<script>
+    function Person() {
+
+    }
+
+    var Person = function Person() {
+
+    }
+
+    var Person = {
+
+    }
+</script>
+
+```
+Ao criar uma classe, utilize sempre o padrão de iniciar o nome da classe com letra maiúscula, para diferenciar das demais funções. Caso queira criar uma classe com nome composto, deve utilizar o padrão camelcase. Exemplo: PersonWithCamelCase().
+
+Dentro destas classes devemos adicionar atributos e métodos, como exemplificamos no módulo anterior.
+
+Quando instanciamos um novo objeto de uma determinada classe, temos à disposição todos os métodos e atributos desta classe no objeto, para utilizarmos da maneira que quisermos.
+
+No próximo módulo adicionaremos os atributos e métodos a nossa classe Person.
 
 [Voltar ao Índice](#indice)
 
