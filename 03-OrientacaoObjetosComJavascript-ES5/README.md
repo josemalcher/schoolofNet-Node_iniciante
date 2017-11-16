@@ -662,6 +662,135 @@ Portanto, você deve analisar seu projeto e verificar a necessidade do uso de m�
 
 ## <a name="parte8">Construtor</a>
 
+O construtor deve estabelecer um padrão de como o objeto deve ser criado ao instanciar uma determinada classe.
+
+Pegando ainda o exemplo da classe Person, imagine que os atributos name, age e height sejam valores que devam ser passados obrigatoriamente no momento de instanciar um objeto. Isso significa que podemos utilizar o construtor para atribuir os valores a estes atributos, automaticamente, no momento de instanciar um novo objeto. Veja o exemplo abaixo:
+
+```
+// Veja como deverá ser criada a função e a atribuição de dados
+function Person(_name, _age, _height) {
+    var name   = _name;
+    var age    = _age;
+    var height = _height;  
+}
+
+// Como instanciar um objeto com construtor
+var leonan = new Person('Leonan', 23, 1.76)
+// leonan.setName('Leonan')
+// leonan.setAge(23)
+// leonan.setHeight(1.76)
+```
+
+Observe que, como estamos passando os dados na construção do objeto, não precisamos mais utilizar os métodos setters para atribuição de valores, pois a própria classe se encarrega disso. Por este motivo, comentamos as atribuições acima, deixando por conta da classe.
+
+Se olhar no console do navegador, terá os mesmos resultados anteriores porque a atribuição continua sendo feita, só que de forma diferente e automática.
+
+Para modificar algum valor inicial, deve-se utilizar o método set. Vale lembrar que os valores iniciais serão sobrescritos.
+
+Caso precise pegar algum valor, deverá utilizar os métodos getters, normalmente.
+
+Existe outra forma de trabalhar com construtor no JavaScript ES5. Seria utilizando um método inicial que deve ser executado a cada instância de objeto. Veja exemplo abaixo:
+
+```
+// Veja como deverá ser criada a função e a atribuição de dados
+function Person(_name, _age, _height) {
+    var name   = _name;
+    var age    = _age;
+    var height = _height;
+
+    this.initialize = function(){
+        console.log('init function');
+    } 
+}
+
+// Como instanciar um objeto com construtor
+var leonan = new Person('Leonan', 23, 1.76)
+leonan.initialize()
+```
+
+Perceba que a cada nova instância, o método construtor deverá ser executado, caso contrário a característica de inicialização não será efetivada.
+
+Desta forma você pode configurar qualquer característica e ação inicial para sua classe. Basta fazer toda lógica na função inicial e chamá-la. Porém, esta prática pode alocar espaço desnecessário em memória.
+
+Podemos utilizar o prototype object para evitar o uso indevido de memória, obrigando todas as instâncias derivarem de uma mesma instância. Este é um assunto que será abordado nos próximos módulos.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Construtor</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Métodos Estáticos</title>
+</head>
+<body>
+<p>Ver Log's</p>
+<script>
+    function Person(_name, _age, _height) {
+        var name   = _name;
+        var age    = _age;
+        var height = _height;
+
+        this.initialize  = function () {
+            console.log('FUNÇÃO initialize ')
+        }
+
+        this.sayHello = function (name) {
+            console.log('Hello ' + name)
+        }
+
+        this.getName = function getName() {
+            return name
+        }
+
+        this.setName = function setName(_name) {
+            name = _name
+        }
+
+        this.getAge = function () {
+            return age
+        }
+
+        this.setAge = function (_age) {
+            age = _age
+        }
+
+        this.getHeight = function getHeight() {
+            return height
+        }
+
+        this.setHeight = function setHeight(_height) {
+            height = _height
+        }
+    }
+
+    Person.static_method = function () {
+        console.log('AQUI é um Métdo Estático!')
+    }
+    Person.static_method();
+
+    Person.static_atributo = 'Meu Atributo Statico';
+    console.log(Person.static_atributo);
+
+    var jose = new Person('José Malcher', 33, 1.75)
+    jose.initialize()
+    /*jose.setName('JOSE MALCHER')
+    jose.setAge(33)
+    jose.setHeight(1.75)*/
+    jose.sayHello(jose.getName())
+
+    console.log(jose)
+</script>
+</body>
+</html>
+</body>
+</html>
+```
 
 [Voltar ao Índice](#indice)
 
