@@ -715,13 +715,7 @@ Desta forma você pode configurar qualquer característica e ação inicial para
 Podemos utilizar o prototype object para evitar o uso indevido de memória, obrigando todas as instâncias derivarem de uma mesma instância. Este é um assunto que será abordado nos próximos módulos.
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Construtor</title>
-</head>
-<body>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -788,8 +782,7 @@ Podemos utilizar o prototype object para evitar o uso indevido de memória, obri
 </script>
 </body>
 </html>
-</body>
-</html>
+
 ```
 
 [Voltar ao Índice](#indice)
@@ -853,13 +846,7 @@ Quando utilizamos o operador this, estamos permitindo o acesso de objetos que in
 Sempre utilize modificador de acesso para proteger dados que necessitem de segurança. Desta forma, você garante que ninguém tenha acesso aos dados durante o processamento da classe, podendo retornar apenas um resultado, depois de toda lógica aplicada.
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Construtor</title>
-</head>
-<body>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -929,8 +916,7 @@ Sempre utilize modificador de acesso para proteger dados que necessitem de segur
 </script>
 </body>
 </html>
-</body>
-</html>
+
 ```
 
 [Voltar ao Índice](#indice)
@@ -1037,13 +1023,7 @@ O prototype, além de todas as vantagens mencionadas, nos permite trabalhar com 
 Falaremos sobre herança no próximo módulo.
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Construtor</title>
-</head>
-<body>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1124,8 +1104,7 @@ Falaremos sobre herança no próximo módulo.
 </script>
 </body>
 </html>
-</body>
-</html>
+
 ```
 
 [Voltar ao Índice](#indice)
@@ -1134,6 +1113,139 @@ Falaremos sobre herança no próximo módulo.
 
 ## <a name="parte11">Herança via prototype</a>
 
+Herança pode ser classificada como um mecanismo para estender funcionalidades de uma classe para outra. Isso quer dizer que, podemos executar funções de uma classe herdada através do objeto instanciado pela classe que a estendeu.
+
+Para a herança existir precisamos de duas classes, onde uma herdará a outra.
+
+```javascript
+function Person(_name, _age, _height) {
+    var name   = _name
+    var age    = _age
+    var height = _height
+
+    this.initialize = function(){
+        console.log('init function')
+    }
+
+    this.sayHello = function(name){
+        console.log('Hello ' + name)
+    }
+
+    this.getName = function getName(){
+        return name
+    }
+
+    this.setName = function setName(_name){
+        name = _name
+    }
+
+    this.getAge = function (){
+        return age
+    }
+
+    this.setAge = function (_age){
+        age = _age
+    }
+
+    this.getHeight = function getHeight(){
+        return height
+    }
+
+    this.setHeight = function setHeight(_height){
+        height = _height
+    }
+}
+
+Person.prototype.happyBirthday = function(){
+    return this.setAge(this.getAge() +1)
+}
+
+function Employee(_name, _age, _height) {
+    var salary
+
+    Person.call(this, _name, _age, _height)
+
+    this.getSalary = function getSalary(){
+        return salary
+    }
+
+    this.setSalary = function setSalary(_salary){
+        salary = _salary
+    }
+}
+
+Employee.prototype = Object.create(Person.prototype)
+
+var leonan = new Employee('Leonan', 23, 1.76)
+console.log(leonan.getAge())
+leonan.happyBirthday()
+console.log(leonan.getAge())
+```
+
+Analisando o código acima você pode encontrar as classes Person e Employee.
+
+Se pensamos no mundo real, um funcionário não deixa de ser uma pessoa, então faz todo sentido que um funcionário herde os atributos e métodos da classe person. Foi isto que fizemos acima. Analise o código mais importante, que é a criação da herança.
+```
+function Employee(_name, _age, _height) {
+    var salary
+
+    Person.call(this, _name, _age, _height)
+
+    this.getSalary = function getSalary(){
+        return salary
+    }
+
+    this.setSalary = function setSalary(_salary){
+        salary = _salary
+    }
+}
+
+Employee.prototype = Object.create(Person.prototype)
+```
+
+Perceba que, para criar a herança temos que chamar a classe mãe dentro da classe que a herdará.
+
+Person.call(this, _name, _age, _height)
+Como estamos chamando a classe, temos que passar os dados do construtor que a classe pai exige. Depois de chamar a classe pai com o método call, precisamos alinhar os prototypes para que a herança exista sem precisarmos ficar fazendo correções.
+
+Employee.prototype = Object.create(Person.prototype)
+Existe outra forma de trabalhar com herança onde temos que realocar os construtores, mas este método exige um nível de adaptação e correção muito alto, portanto opte por trabalhar com o alinhamento de prototypes, onde utilizamos o método Object.create, assim o JavaScript faz todas as adaptações automaticamente.
+
+Depois de criar a herança, note que no exemplo estamos instanciando um objeto da classe Employee.
+
+```
+var leonan = new Employee('Leonan', 23, 1.76)
+console.log(leonan.getAge())
+leonan.happyBirthday()
+console.log(leonan.getAge())
+```
+
+Após instanciar o objeto, imprimimos a idade do mesmo através do método getAge. Se observar, a classe Employee não possui este método. Este é o primeiro sinal da herança sendo evidenciado, pois estamos utilizando um método da classe mãe.
+
+Em seguida, executamos um método registrado através do prototype da classe mãe, mas como alinhamos os prototypes, podemos utilizar por fazer parte da herança.
+
+Veja o registro do método no prototype:
+
+```
+Person.prototype.happyBirthday = function(){
+    return this.setAge(this.getAge() +1)
+}
+```
+
+Este método faz com que a pessoa faça aniversário somando um ano à idade atual da mesma. Veja que o método utiliza o set e o get da classe mãe para efetuar a lógica e retornar a nova idade, pós aniversário.
+
+Então, finalizamos o exemplo imprimindo a nova idade.
+
+Perceba como podemos criar heranças, facilmente, através do JavaScript, apesar de ter uma forma particular de trabalhar com a herança.
+
+O importante é você entender que todos os métodos e atributos que forem comuns às duas classes, devem estar na classe mãe e os métodos e atributos únicos devem estar na classe filha, uma vez que o objeto sempre terá acesso a todos os métodos e atributos presentes em ambas as classes.
+
+Para analisar todos os métodos e atributos presentes no objetos, basta adicionar o código abaixo e abrir o console do navegador.
+
+```
+var leonan = new Employee('Leonan', 23, 1.76)
+console.log(leonan)
+```
 
 [Voltar ao Índice](#indice)
 
