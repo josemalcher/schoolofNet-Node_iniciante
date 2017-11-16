@@ -6,7 +6,7 @@ https://www.schoolofnet.com/curso-orientacao-objetos-com-javascript-es5/
 
 ---
 
-## Índice
+## <a name="indice">Índice</a>
 
 - [Introdução](#parte1)
 - [Review sobre ambiente](#parte2)
