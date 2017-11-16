@@ -1185,6 +1185,7 @@ console.log(leonan.getAge())
 Analisando o código acima você pode encontrar as classes Person e Employee.
 
 Se pensamos no mundo real, um funcionário não deixa de ser uma pessoa, então faz todo sentido que um funcionário herde os atributos e métodos da classe person. Foi isto que fizemos acima. Analise o código mais importante, que é a criação da herança.
+
 ```
 function Employee(_name, _age, _height) {
     var salary
@@ -1205,10 +1206,16 @@ Employee.prototype = Object.create(Person.prototype)
 
 Perceba que, para criar a herança temos que chamar a classe mãe dentro da classe que a herdará.
 
+```
 Person.call(this, _name, _age, _height)
+```
+
 Como estamos chamando a classe, temos que passar os dados do construtor que a classe pai exige. Depois de chamar a classe pai com o método call, precisamos alinhar os prototypes para que a herança exista sem precisarmos ficar fazendo correções.
 
+```
 Employee.prototype = Object.create(Person.prototype)
+```
+
 Existe outra forma de trabalhar com herança onde temos que realocar os construtores, mas este método exige um nível de adaptação e correção muito alto, portanto opte por trabalhar com o alinhamento de prototypes, onde utilizamos o método Object.create, assim o JavaScript faz todas as adaptações automaticamente.
 
 Depois de criar a herança, note que no exemplo estamos instanciando um objeto da classe Employee.
@@ -1245,6 +1252,115 @@ Para analisar todos os métodos e atributos presentes no objetos, basta adiciona
 ```
 var leonan = new Employee('Leonan', 23, 1.76)
 console.log(leonan)
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificadores de Acesso</title>
+</head>
+<body>
+<p>Ver Log's</p>
+<script>
+    function Person(_name, _age, _height) {
+        var name   = _name;
+        var age    = _age;
+        var height = _height;
+
+        this.initialize  = function () {
+            console.log('FUNÇÃO initialize ')
+        }
+
+        function funcaoPrivada() {
+            console.log('Exemplo de Função Privada')
+        }
+
+        this.sayHello = function (name) {
+            console.log('Hello ' + name)
+        }
+
+        this.getName = function getName() {
+            return name
+        }
+
+        this.setName = function setName(_name) {
+            name = _name
+        }
+
+        this.getAge = function () {
+            return age
+        }
+
+        this.setAge = function (_age) {
+            age = _age
+        }
+
+        this.getHeight = function getHeight() {
+            return height
+        }
+
+        this.setHeight = function setHeight(_height) {
+            height = _height
+        }
+    }
+
+    Person.static_method = function () {
+        //console.log('AQUI é um Métdo Estático!')
+    }
+    Person.static_method();
+
+    Person.static_atributo = 'Meu Atributo Statico';
+
+    Person.prototype.minhaProtoFunc = function () {
+        console.log('Minha primeira FUNÇÃO PROTOTYPE ')
+    }
+
+    Person.prototype.FazAniversario = function () {
+        return this.setAge(this.getAge()+ 1)
+    }
+
+
+    function Empregado(_name, _age, _hight) {
+        var salario
+
+        Person.call(this, _name, _age, _hight)
+
+        this.getSalario = function () {
+            return salario
+        }
+        this.setSalario = function (_salario) {
+            salario = _salario
+        }
+    }
+
+    Empregado.prototype = Object.create(Person.prototype)
+
+    var jose = new Empregado('José Malcher Jr.', 33, 1.75)
+    console.log(jose.getAge())
+    jose.FazAniversario()
+    console.log(jose.getAge())
+
+ /*   console.log(Person.static_atributo);
+
+    console.log(new Person())
+
+    var jose = new Person('José Malcher', 33, 1.75)
+    jose.sayHello(jose.getName())
+    console.log(jose)
+    console.log(jose.name) // propriedade é privada!
+    console.log(jose.funcaoPrivada)// private
+
+    console.log(jose.__proto__)
+    console.log(Person.prototype)
+
+    jose.minhaProtoFunc();*/
+
+</script>
+</body>
+</html>
+
 ```
 
 [Voltar ao Índice](#indice)
