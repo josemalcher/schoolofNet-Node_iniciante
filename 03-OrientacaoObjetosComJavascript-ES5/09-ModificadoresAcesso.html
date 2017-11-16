@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Construtor</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificadores de Acesso</title>
+</head>
+<body>
+<p>Ver Log's</p>
+<script>
+    function Person(_name, _age, _height) {
+        var name   = _name;
+        var age    = _age;
+        var height = _height;
+
+        this.initialize  = function () {
+            console.log('FUNÇÃO initialize ')
+        }
+
+        function funcaoPrivada() {
+            console.log('Exemplo de Função Privada')
+        }
+
+        this.sayHello = function (name) {
+            console.log('Hello ' + name)
+        }
+
+        this.getName = function getName() {
+            return name
+        }
+
+        this.setName = function setName(_name) {
+            name = _name
+        }
+
+        this.getAge = function () {
+            return age
+        }
+
+        this.setAge = function (_age) {
+            age = _age
+        }
+
+        this.getHeight = function getHeight() {
+            return height
+        }
+
+        this.setHeight = function setHeight(_height) {
+            height = _height
+        }
+    }
+
+    Person.static_method = function () {
+        console.log('AQUI é um Métdo Estático!')
+    }
+    Person.static_method();
+
+    Person.static_atributo = 'Meu Atributo Statico';
+    console.log(Person.static_atributo);
+
+    console.log(new Person())
+
+    var jose = new Person('José Malcher', 33, 1.75)
+    jose.sayHello(jose.getName())
+    console.log(jose)
+    console.log(jose.name) // propriedade é privada!
+    console.log(jose.funcaoPrivada)// private
+</script>
+</body>
+</html>
+</body>
+</html>

@@ -798,6 +798,140 @@ Podemos utilizar o prototype object para evitar o uso indevido de memória, obri
 
 ## <a name="parte9">Modificadores de acesso</a>
 
+Modificadores de acesso são formas que temos para liberar ou bloquear acessos a determinados atributos ou métodos. Podemos torná-los acessíveis ou protegidos, de acordo com a maneira que os implementamos.
+
+O JavaScript não tem uma forma declarada para trabalhar com modificadores de acesso, assim como outras liguagens que possuem algum operador ou estrutura determinada. É possível implementá-lo com o contexto de escopo.
+
+Há atributos e métodos privados e também os públicos. Isso quer dizer que podemos deixar público para acessos externos e privado, somente para acessos interno.
+
+Quando falamos interno, significa que podemos utilizar somente dentro do escopo da classe. Já fizemos este procedimento indiretamente, mas não comentamos sobre ele.
+
+Quando podemos acessar diretamente um método, através de um objeto instanciado, podemos dizer que este método é público. Veja exemplos de métodos e atributos públicos:
+
+```
+// Classe com métodos e atributos públicos
+function Person() {
+  this.name;
+  this.age;
+  this.height;   
+
+  this.initialize = function(){
+      console.log('init function');
+  }
+
+  this.sayHello = function(name){
+      console.log('Hello ' + name)
+  }
+}
+
+// Acessando método externamente
+var leonan = new Person('Leonan', 23, 1.76)
+leonan.sayHello(leonan.getName())
+```
+
+Agora veja a mesma classe com com os mesmos métodos e atributos, porém privados:
+
+```
+// Classe com métodos e atributos privados
+function Person() {
+  var name;
+    var age;
+    var height;   
+
+  function initialize(){
+      console.log('init function');
+  }
+
+  function sayHello(name){
+      console.log('Hello ' + name)
+  }
+}
+```
+
+Quando utilizamos o operador this, estamos permitindo o acesso de objetos que instanciaram a classe, tornando o acesso público. Quando criamos métodos e atributos sem o operador this, estamos dizendo que pertencem somente ao contexto interno da classe, sem que seja possível acessar externamente. Este é o conceito de modificador de acesso.
+
+Sempre utilize modificador de acesso para proteger dados que necessitem de segurança. Desta forma, você garante que ninguém tenha acesso aos dados durante o processamento da classe, podendo retornar apenas um resultado, depois de toda lógica aplicada.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Construtor</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificadores de Acesso</title>
+</head>
+<body>
+<p>Ver Log's</p>
+<script>
+    function Person(_name, _age, _height) {
+        var name   = _name;
+        var age    = _age;
+        var height = _height;
+
+        this.initialize  = function () {
+            console.log('FUNÇÃO initialize ')
+        }
+
+        function funcaoPrivada() {
+            console.log('Exemplo de Função Privada')
+        }
+
+        this.sayHello = function (name) {
+            console.log('Hello ' + name)
+        }
+
+        this.getName = function getName() {
+            return name
+        }
+
+        this.setName = function setName(_name) {
+            name = _name
+        }
+
+        this.getAge = function () {
+            return age
+        }
+
+        this.setAge = function (_age) {
+            age = _age
+        }
+
+        this.getHeight = function getHeight() {
+            return height
+        }
+
+        this.setHeight = function setHeight(_height) {
+            height = _height
+        }
+    }
+
+    Person.static_method = function () {
+        console.log('AQUI é um Métdo Estático!')
+    }
+    Person.static_method();
+
+    Person.static_atributo = 'Meu Atributo Statico';
+    console.log(Person.static_atributo);
+
+    console.log(new Person())
+
+    var jose = new Person('José Malcher', 33, 1.75)
+    jose.sayHello(jose.getName())
+    console.log(jose)
+    console.log(jose.name) // propriedade é privada!
+    console.log(jose.funcaoPrivada)// private 
+</script>
+</body>
+</html>
+</body>
+</html>
+```
 
 [Voltar ao Índice](#indice)
 
