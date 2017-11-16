@@ -408,6 +408,134 @@ Você entenderá melhor este conceito quando falarmos de modificadores de acesso
 
 ## <a name="parte6">Encapsulamentos</a>
 
+Acabamos de apresentar um pilar da programação orientada a objetos, que são as classes. Agora, mostraremos um segundo pilar que se chama encapsulamento.
+
+Encapsulamento é a separação das características internas e externas de um objeto. O objetivo de utilizar o encapsulamento é proteger os nossos atributos, tendo em vista que passamos a não ter acesso direto aos atributos, mas sim a uma função que terá como principal objetivo gerenciar as entradas e saídas de dados. Estas funções são chamadas de getters e setters.
+
+Método |	Descrição
+--- | ---
+get |	Pega valor do atributo
+set |	Define valor ao atributo
+
+Criando getters e setters
+```javascript
+
+<script>
+    function Person() {
+        this.name;
+        this.age;
+        this.height;   
+
+        this.sayHello = function(name){
+            console.log('Hello ' + name)
+        }
+
+        this.getName = function getName(){
+            return this.name
+        }
+
+        this.setName = function setName(_name){
+            this.name = _name
+        }
+
+        this.getAge = function (){
+            return this.age
+        }
+
+        this.setAge = function (_age){
+            this.age = _age
+        }
+
+        this.getHeight = function getHeight(){
+            return this.height
+        }
+
+        this.setHeight = function setHeight(_height){
+            this.height = _height
+        }
+    }
+
+    var leonan = new Person()
+    leonan.setName('Leonan')
+    leonan.setAge(23)
+    leonan.setHeight(1.76)
+    leonan.sayHello(leonan.getName())
+
+    console.log(leonan)
+</script>
+```
+
+Observe que atribuímos os valores através do método set e não mais diretamente. Na função sayHello que passávamos o valor diretamente, estamos utilizando o método get.
+
+Criamos um acesso protegido para os atributos da nossa classe, porém os mesmos ainda estão acessíveis diretamente. Para que nosso encapsulamento seja completo, removendo qualquer acesso externo direto, temos que alterar a forma de declarar os atributos e também os acessos dos getters e setters aos mesmos. Veja como ficará o código .
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encapsulamento</title>
+</head>
+<body>
+<p>Ver Log's</p>
+<script>
+    function Person() {
+        var name;
+        var age;
+        var height;
+
+        this.sayHello = function(name){
+            console.log('Hello ' + name)
+        }
+
+        this.getName = function getName(){
+            return name
+        }
+
+        this.setName = function setName(_name){
+            name = _name
+        }
+
+        this.getAge = function (){
+            return age
+        }
+
+        this.setAge = function (_age){
+            age = _age
+        }
+
+        this.getHeight = function getHeight(){
+            return height
+        }
+
+        this.setHeight = function setHeight(_height){
+            height = _height
+        }
+    }
+
+    var jose = new Person()
+    jose.setName('JOSE MALCHER')
+    jose.setAge(33)
+    jose.setHeight(1.75)
+    jose.sayHello(jose.getName())
+
+    console.log(jose)
+</script>
+</body>
+</html>
+```
+
+Note que estamos declarando variáveis que só estão disponíveis dentro da classe, sendo acessada apenas por métodos internos. Se você analisar o console agora, verá que os atributos não estão mais disponíveis.
+
+Nos métodos getters e setters também estamos acessando as variáveis diretamente sem o operador this, por estar dentro do contexto da classe.
+
+Se você der um console log em algum atributo diretamente, terá como resultado o undefined.
+```
+console.log(jose.name)
+```
+Após realizar estas alterações, temos os atributos privados. Você entenderá melhor este conceito quando falarmos sobre modificadores de acesso.
+
+Por enquanto você deve entender que temos três atributos encapsulados e que só podemos acessá-los através dos métodos get e set.
+
 
 [Voltar ao Índice](#indice)
 
