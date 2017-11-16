@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodos e atributos</title>
+</head>
+<body>
+<script>
+
+    function Pessoa() {
+        this.name;
+        this.age;
+        this.height;
+        
+        this.sayHello = function (name) {
+            console.log('OLá '+ name)
+        }
+
+    }
+
+    var jose = new Pessoa();
+    jose.nome = "José Malcher"
+    jose.age = 33
+    jose.height = 1.75
+    jose.sayHello(jose.nome)
+
+    console.log(jose)
+
+</script>
+</body>
+</html>
