@@ -1369,6 +1369,157 @@ console.log(leonan)
 
 ## <a name="parte12">Polimorfismo</a>
 
+Polimorfismo é uma técnica que consiste em criar métodos com o mesmo nome ou assinatura, com comportamentos totalmente diferentes. O polimorfismo é criado quando temos o relacionamento de herança, ou seja, temos uma classe chamada happyBirthday na classe mãe e também na classe filha, porém com comportamentos distintos.
+
+```javascript
+// Criando objeto da classe mãe e utilizando o método happyBirthday
+var victor = new Person('Victor', 22, 1.70)
+console.log(victor.getName(), victor.getAge())
+victor.happyBirthday()
+console.log(victor.getName(), victor.getAge())
+
+// Criando objeto da classe filha e utilizando o método happyBirthday da classe filha
+var leonan = new Employee('Leonan', 23, 1.76)
+console.log(leonan.getName(), leonan.getAge())
+leonan.happyBirthday = function happyBirthday(){
+    return this.setAge(this.getAge() + 2)
+}
+leonan.happyBirthday()
+console.log(leonan.getName(), leonan.getAge())
+
+```
+Analisando o código acima, você pode ver que o objeto victor pertence a classe mãe Person, portanto não possui os métodos da classe filha Employee.
+
+Executamos o método happyBirthday do prototype da classe mãe, onde não temos nenhum polimorfismo, uma vez que existe somente este método na classe mãe com este nome.
+
+O polimorfismo acontece no segundo exemplo, onde instanciamos um objeto da classe Employee, que é filha da classe Person. Neste caso, criamos um método chamado happyBirthday e teremos dois métodos com o mesmo nome. Um vindo da classe mãe, por herança, e outro criado na classe filha. Cada método executa uma lógica diferente.
+
+Veja que o primeiro soma um ano à idade atual e o segundo soma dois anos.
+
+O resultado que você deve ter no console está abaixo:
+```
+Victor 22
+Victor 23
+Leonan 23
+Leonan 25
+```
+Caso não tivéssemos criado o método happyBirthday na classe filha, o resultado para a idade de Leonan seria 24, pois executaria o método da classe mãe que soma apenas um ano à idade.
+
+Como o método foi criado, o JavaScript entende que o método da classe mãe deve ser sobrescrito, ignorando a lógica anterior. Este é um exemplo simples de polimorfismo sendo executado entre classes com herança.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polimorfismo</title>
+</head>
+<body>
+<p>Ver Log's</p>
+<script>
+    function Person(_name, _age, _height) {
+        var name   = _name;
+        var age    = _age;
+        var height = _height;
+
+        this.initialize  = function () {
+            console.log('FUNÇÃO initialize ')
+        }
+
+        function funcaoPrivada() {
+            console.log('Exemplo de Função Privada')
+        }
+
+        this.sayHello = function (name) {
+            console.log('Hello ' + name)
+        }
+
+        this.getName = function getName() {
+            return name
+        }
+
+        this.setName = function setName(_name) {
+            name = _name
+        }
+
+        this.getAge = function () {
+            return age
+        }
+
+        this.setAge = function (_age) {
+            age = _age
+        }
+
+        this.getHeight = function getHeight() {
+            return height
+        }
+
+        this.setHeight = function setHeight(_height) {
+            height = _height
+        }
+    }
+
+    Person.static_method = function () {
+        //console.log('AQUI é um Métdo Estático!')
+    }
+    Person.static_method();
+
+    Person.static_atributo = 'Meu Atributo Statico';
+
+    Person.prototype.minhaProtoFunc = function () {
+        console.log('Minha primeira FUNÇÃO PROTOTYPE ')
+    }
+
+    Person.prototype.FazAniversario = function () {
+        return this.setAge(this.getAge()+ 1)
+    }
+
+
+    function Empregado(_name, _age, _hight) {
+        var salario
+
+        Person.call(this, _name, _age, _hight)
+
+        this.getSalario = function () {
+            return salario
+        }
+        this.setSalario = function (_salario) {
+            salario = _salario
+        }
+    }
+
+    Empregado.prototype = Object.create(Person.prototype)
+
+    var jose = new Empregado('José Malcher Jr.', 33, 1.75)
+    console.log(jose.getAge())
+
+    jose.FazAniversario = function FazAniversario() {
+        return this.setAge(this.getAge()+ 2)
+    }
+
+    jose.FazAniversario()
+    console.log(jose.getAge())
+
+    /*   console.log(Person.static_atributo);
+
+       console.log(new Person())
+
+       var jose = new Person('José Malcher', 33, 1.75)
+       jose.sayHello(jose.getName())
+       console.log(jose)
+       console.log(jose.name) // propriedade é privada!
+       console.log(jose.funcaoPrivada)// private
+
+       console.log(jose.__proto__)
+       console.log(Person.prototype)
+
+       jose.minhaProtoFunc();*/
+
+</script>
+</body>
+</html>
+
+```
 
 [Voltar ao Índice](#indice)
 
