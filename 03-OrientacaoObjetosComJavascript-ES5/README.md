@@ -91,6 +91,56 @@ Sempre aconselhamos o download da versão LTS(Long-term support), para evitar pr
 ## <a name="parte3">Introdução sobre orientação a objetos</a>
 
 
+Após ter configurado o ambiente, começaremos a desenvolver na prática.
+
+Apresentaremos alguns conceitos iniciais sobre o que é orientação a objeto e como podemos aplicá-la dentro do JavaScript.
+
+Programação orientada a objeto é um dos paradigmas mais utilizados, atualmente, em programação independente da linguagem utilizada. Isso porque, a maioria das linguagens já fornece suporte a este padrão.
+
+Todo desenvolvedor deve conhecer estes conceitos e mostraremos como aplicá-lo no JavaScript.
+
+O JavaScript também é orientado a eventos. Você vê, constantemente, em aplicações que utilizam o JQuery, por exemplo. Alguns frameworks conhecidos também encapsulam parte da orientação a ojeto de maneira abstraída, mas também focam na orientação a eventos.
+
+O nosso foco neste curso é falar sobre a orientação a objetos, deixaremos os eventos um pouco de lado.
+
+Desenvolver projetos através de classes e atributos, transpondo toda estrutura real em um objeto, é uma definição mais simples para falarmos de orientação a objetos. Podemos criar diversos objetos para que eles trabalhem individualmente ou em conjunto. Tudo dependerá da lógica envolvida no projeto a ser desenvolvido.
+
+Muitas linguagens, fortemente conhecidas, utilizam a estrutura orientada a objetos e utilizará por muitos anos ainda. Alguns exemplos de linguagens que utilizam:
+
+- CSharp (C#)  
+- Java  
+- Ruby  
+
+O JavaScript também utiliza, mas de forma diferente das demais. Em módulos futuros, mostraremos as diferenças e como lidar com elas.
+
+Quando estamos programando orientado a objeto, é necessário que tenhamos um pensamento um pouco distinto da forma estruturada de pensar. Apesar de termos um problema real a ser resolvido, temos que pensar de maneira diferente por estarmos trabalhando com objetos da programação. Precisamos pensar na maneira que a máquina pensaria e por isso aprendemos desenvolver algorítmos.
+
+Primeiro, temos que capturar todos os pontos lógicos a serem resolvidos, depois transformamos todos estes pontos em classes. Estas classes terão características e ações que formarão um objeto a ser utilizado para solucionar o problema em questão.
+
+Um exemplo muito utilizado para explicar uma abstração e um código orientado a objeto, é uma classe que cria pessoas. Pessoas possuem características e ações como abaixo:
+
+Características:  
+- Idade  
+- Sexo  
+- Peso  
+
+Ações:  
+- Andar  
+- Falar  
+- Correr  
+
+Por mais simples que seja o exemplo, não deixa de ser um exemplo de abstração de um mundo real para o mundo computacional.
+
+Esta ação de abstração pode ser feita, inconsciente ou conscientemente, para modelar os dados de forma orientada a objetos.
+
+Quando utilizamos este paradigma, ele traz consigo a facilidade da reutilização do código em algum momento, ou seja, existem classes genéricas que podem ser utilizadas para mais de uma finalidade.
+
+Dessa forma que são criadas bibliotecas e alguns frameworks disponibilizam classes prontas, para que possamos utilizar quando for necessário e quantas vezes forem necessárias.
+
+Todos estes conceitos, quando aplicados corretamente, nos proporcionam trabalhar de forma mais organizada, deixando nosso código mais limpo e consequentemente uma melhor manutenção dos projetos.
+
+A partir de agora comentaremos os principais conceitos e, dentro de exemplos práticos, mostraremos como são utilizados e aplicados dentro da linguagem JavaScript.
+
 [Voltar ao Índice](#indice)
 
 ---
