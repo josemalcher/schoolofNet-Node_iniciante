@@ -1527,6 +1527,26 @@ Como o método foi criado, o JavaScript entende que o método da classe mãe dev
 
 ## <a name="parte13">Finalizando</a>
 
+Neste conteúdo focamos em apresentae os aspectos e pilares da programação orientada a objetos na linguagem JavaScript em sua versão ES5.
+
+Falamos sobre cada um e mostramos como utilizar no JavaScript.
+
+É muito importante não só saber a teoria por trás destes recursos, mas também saber aplicá-la em seu projeto.
+
+Falamos sobre:
+
+O que constitui uma classe    
+Encapsulamento    
+Métodos estáticos    
+Construtores    
+Modificadores de acesso    
+Prototype    
+Herança    
+Polimorfismo    
+
+Falamos também sobre instanciação de um objeto e como ela é feita.
+
+Esperamos que tenha gostado do conteúdo e aproveitado ao máximo os conceitos apresentados.
 
 [Voltar ao Índice](#indice)
 
