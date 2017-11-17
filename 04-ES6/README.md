@@ -30,6 +30,7 @@ https://www.schoolofnet.com/curso-es6/
 
 ## <a name="parte1">Falando sobre o ES6 </a>
 
+https://babeljs.io/
 
 
 [Voltar ao Índice](#indice)
@@ -38,6 +39,56 @@ https://www.schoolofnet.com/curso-es6/
 
 ## <a name="parte2">Instalando e configurando o Babel Js</a>
 
+terminal:
+```
+npm init
+npm install babel-cli babel-preset-es2015 --save-dev
+```
+
+```
+{
+  "name": "comecando_com_es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", // virgula...
+    "babel": "babel src --out-file js/main.js -w" // <<<<<<-------- Adição
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
+
+```
+Criar pasta src e js.
+
+Criar o arquivo .babelrc :
+```
+{
+  "presets": [  "es2015" ]
+}
+
+```
+
+Teste src/app.js
+```javascript
+class Cliente{
+    constructor(name,email){
+        this.name = name;
+        this.email = email;
+    }
+}
+```
+
+Rodar o babel, terminal:
+```
+npm run babel
+
+```
 
 
 [Voltar ao Índice](#indice)
