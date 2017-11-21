@@ -208,7 +208,18 @@ console.log(test(2));
 
 ## <a name="parte7">Listar registros com For OF</a>
 
+```
+var list = ["Teste texto", 34, {name:"José Malcher"}];
 
+for(var i in list){
+  console.log(i);
+  console.log(list[i]);
+}
+
+for(let i of list){
+  console.log(i);
+}
+```
 
 [Voltar ao Índice](#indice)
 
