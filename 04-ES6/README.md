@@ -285,6 +285,30 @@ if(color.size === 2 && color.has("red")){
 
 ## <a name="parte10">Formatação de números</a>
 
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+</head>
+<body>
+
+<script src="js/main.js"></script>
+</body>
+</html>
+```
+
+```javascript
+
+var number = 123456.34;
+
+var En = new Intl.NumberFormat('en-US').format(number);
+var De = new Intl.NumberFormat('de-DE').format(number);
+
+console.log(En);
+console.log(De);
+```
 
 
 [Voltar ao Índice](#indice)
