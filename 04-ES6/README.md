@@ -347,7 +347,18 @@ console.log(DE.format(new Date("2016-05-10")));
 
 ## <a name="parte13">Busca em strings</a>
 
+```javascript
 
+console.log("hello".indexOf("ello") === 1);
+
+console.log("hello".startsWith("ello",1));
+
+console.log("hello".endsWith("hello",5));
+
+console.log("hello".includes("o",1));
+
+console.log("hello".includes("e",3));
+```
 
 [Voltar ao Índice](#indice)
 
