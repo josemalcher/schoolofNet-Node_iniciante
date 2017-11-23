@@ -267,6 +267,16 @@ console.log(teste.toString());
 
 ## <a name="parte9">Set date struture </a>
 
+```javascript
+let color = new Set();
+color.add("red").add("green").add("red");
+
+if(color.size === 2 && color.has("red")){
+  for(let key of color.values()){
+    console.log(key);
+  }
+}
+```
 
 
 [Voltar ao Índice](#indice)
