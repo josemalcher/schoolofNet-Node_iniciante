@@ -331,7 +331,15 @@ console.log(BRL.format(1910109291.40));
 
 ## <a name="parte12">Formatação de datas</a>
 
+```javascript
+var US = new Intl.DateTimeFormat("en-US");
+var BR = new Intl.DateTimeFormat("pt-BR");
+var DE = new Intl.DateTimeFormat("de-DE");
 
+console.log(US.format(new Date("2016-05-10")));
+console.log(BR.format(new Date("2016-05-10")));
+console.log(DE.format(new Date("2016-05-10")));
+```
 
 [Voltar ao Índice](#indice)
 
