@@ -366,6 +366,13 @@ console.log("hello".includes("e",3));
 
 ## <a name="parte14">Finalizando</a>
 
+Guias:
+
+https://www.tutorialspoint.com/es6/
+
+https://github.com/ericdouglas/ES6-Learning
+
+http://ccoenraets.github.io/es6-tutorial/
 
 
 [Voltar ao Índice](#indice)
