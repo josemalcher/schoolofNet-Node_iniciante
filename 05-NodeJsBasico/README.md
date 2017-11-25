@@ -48,7 +48,38 @@ https://nodejs.org/en/docs/
 
 ## <a name="parte2">Configurando ambiente de desenvolvimento</a>
 
+Configuraremos um ambiente para darmos continuidade ao conteúdo e consigamos aprender como criar aplicativos, utilizando a plataforma Node.js.
 
+Uma das primeiras informações que devemos passar é que o Node é multiplataforma. Não importa qual o sistema operacional que estiverem utilizando, vocês conseguirão trabalhar com Node.
+
+Para fazerem a instalação da plataforma basta acessar o site na área de download: https://nodejs.org/en/download/. No momento em que este conteúdo foi criado as versões disponíveis eram: v4.6.0 LTS e v6.7.0 Current. A versão recomendada, sempre, é a versão LTS, mas vocês podem escolher com qual querem trabalhar. Quando estiverem lendo este conteúdo, pode ser que as versões já tenham sido atualizadas.
+
+Quando acessarem a àrea de download, vocês verão que existem instaladores para todos os sistemas operacionais. Antes de instalar, vocês devem saber a direfença entre versão LTS e Current.
+
+1- A LTS é a versão mais utilizada pelos usuários e sempre é a recomendada porque ela é uma versão que está sendo mantida pela equipe de desenvolvedores do Node.js e existe suporte à linguagem. Ela é recomendada por ser mais estável e por ter uma probabilidade menor de conflitos de linguagem.  
+2- A Current é a última versão lançada, que geralmente está em fase de testes e vocês correm um risco maior de terem incompatibilidade, em seus projetos. Por outro lado, vocês estarão trabalhando com o que há de mais novo no Node.  
+
+Vocês podem estar se perguntando qual deveriam utilizar. Nós, da School of Net, recomendamos, principalmente, para quem está começando, utilizar a versão LTS da plataforma. Embora as novas versões do Node, dificilmente, saem com conflitos ou erros, para evitarem problemas, melhor utilizarem a que está sendo usada pela maioria.
+
+Se por acaso estiverem trabalhando com Windows ou MAC, vocês poderão fazer o download e instalar normalmente, como qualquer outro programa. Para Linux vocês não terão tanto problema, também, porque o site fornece os binários para download.
+
+Se desejarem instalar o Node, diretamente, do gerenciador de pacotes do sistema operacional, vocês, também, podem. No MAC podem utilizar o brew, para Linux vocês podem instalar com apt-get e no Windows podem utilizar o choco(Chocolatey).
+
+O resultado final das instalações será o mesmo, porém, se instalarem via terminal, vocês já terão as variáveis de ambiente, devidamente, instaladas e configuradas. Talvez, instalando manualmente, vocês tenham que fazer esta configuração manual, também.
+
+### npm
+
+Qualquer versão do Node que vocês escolham, trará consigo o npm(Node Package Manager), que é o gerenciador de pacotes do Node.
+
+### Editor de texto | IDE
+
+Para trabalharmos com códigos, utilizaremos o editor de texto Sublime Text. Acessando o site https://www.sublimetext.com/3, terão acesso ao download para que possam instalar. Fiquem tranquilos, ele roda em qualquer máquina e é muito leve. O Sublime é um editor de texto que se assemelha muito a uma IDE, por possuir muitos plugins que o ajudam, durante o desenvolvimento.
+
+Após a instalação do editor vocês já estarão aptos a utilizá-lo, mesmo na versão gratuita, sem licença.
+
+Conclusão
+
+Agora que temos o Node.js e um editor de texto, instalados, estamos pronto para dar continuidade aos próximos conteúdos.
 
 [Voltar ao Índice](#indice)
 
