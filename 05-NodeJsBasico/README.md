@@ -30,11 +30,25 @@ https://www.schoolofnet.com/curso-node-js-basico/
 
 ## <a name="parte1">Introdução</a>
 
+
+Neste conteúdo falaremos sobre os conceitos básicos de Node.js.
+
+Daremos uma breve introdução sobre a plataforma, ensinaremos a configurar um ambiente, passaremos os principais conceitos de Node.js e, também, os conceitos que envolvem o npm. Em seguida, vocês aprenderão a trabalhar com uma série de classes, que o Node disponibiliza em sua API nativa, que são: http, arquivo e evento emitter.
+
+Quando terminarmos os módulos de classes, falaremos um, pouco, sobre: programação orientada a eventos, como administrar pacotes externos, websockets. Por último, falaremos, um pouco, sobre os principais frameworks da plataforma.
+
+Sejam bem-vindos a mais um conteúdo da School of Net.
+
+
+https://nodejs.org/en/docs/
+
 [Voltar ao Índice](#indice)
 
 ---
 
 ## <a name="parte2">Configurando ambiente de desenvolvimento</a>
+
+
 
 [Voltar ao Índice](#indice)
 
