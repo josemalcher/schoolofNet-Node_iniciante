@@ -86,6 +86,28 @@ Agora que temos o Node.js e um editor de texto, instalados, estamos pronto para 
 ---
 ## <a name="parte3">O que é node.js?</a>
 
+Neste módulo iremos falar sobre o que é a plataforma node.js, quais são as principais diferenças entre as outras plataformas e o Node e, também, o que ela traz de diferencial em termos de codificação e de plataforma.
+
+De acordo com o site do Node, o mesmo pode ser definidio como uma biblioteca que foi criada em cima de uma engine chamada v8, que por sua vez, tem a capacidade de interpretar códigos escritos em javascript e faz a compilação. Esta é a grande novidade que o Node traz, o fato de permitir rodar javascript, do lado do servidor.
+
+Vocês podem aproveitar todo conhecimento que possuem em javascript, para desenvolver códigos voltados para o servidor. Suponham que vocês tenham um sistema que faça consultas no banco de dados: select, insert, update, delete , um sistema que faça requisições para consultar o CEP do Correio. Antigamente, precisaríamos de uma linguagem server side para fazer este tipo de consulta ou requisição. Precisaríamos utilizar o PHP, por exemplo, juntamente com javascript, para conseguir fazer uma requisição.
+
+Com o Node podemos fazer, diretamente, estas consultas e requisições, sem precisar de uma outra linguagem, porque ele assume este papel server side. Enviamos a requisição com javascript, ele processa no servidor e retorna, via javascript também. Temos a utilização do javascript, de ponta a ponta, no processo todo.
+
+Além disso, ele possui alguns recursos muito interessantes. O Node utiliza programação orientada a eventos para resolver uma série de problemas e utiliza o conceito de não bloqueante. Todas as APIs do Node são desenvolvidas para não serem bloqueantes. Isso faz com que o Node tenha uma performance melhor do que outras plataformas que só permitem acesso bloqueante.
+
+O Node traz consigo um ecossistema muito grande de packages publicados no npm, que é o gerenciador de pacotes utilizado nos projetos Node. Com esta grande quantidade de pacotes disponibilizados, teremos muito mais poder na hora de desenvolver qualquer tipo de projeto.
+
+Logo no início da criação desta plataforma, não era tão fácil encontrar pacotes ou frameworks que pudessem facilitar a vida dos desenvolvedores. Atualmente, sua popularidade aumentou e, por este motivo, existe uma grande quantidade de códigos, bibliotecas e frameworks, sendo criados a todo momento.
+
+### Qual o problema que o Node soluciona?
+
+Ele vem com o objetivo de fornecer uma maneira simples e eficiente de criar programas de redes escaláveis. Isso quer dizer que, diferente de outras plataformas, o Node trabalhar de uma forma que permite muito mais processos simultâneos. Isso faz com que o servidor demore mais a cair, em casos de acessos extremos.
+
+Apesar do Node ser, relativamente, novo, ele possui uma base bem sólida. É por este motivo que algumas empresas como: Microsoft, Heroku e várias start ups brasileiras, estão aderindo ao Node, como ferramenta de trabalho.
+
+Atualmente, quando iniciamos a aprendizagem de uma nova linguagem, começamos, sempre, aprendendo a forma procedural, depois organizamos os pensamentos de forma orientada a objetos. Neste conteúdo vocês aprenderão a programar de forma orientada a eventos. Se pararem para pensar, isso já acontece no javascript, nativamente. Temos um exemplo de orientação a eventos que é o famoso jQuery, que é muito utilizado na web.
+
 [Voltar ao Índice](#indice)
 
 ---
