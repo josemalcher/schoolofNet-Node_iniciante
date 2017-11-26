@@ -113,6 +113,34 @@ Atualmente, quando iniciamos a aprendizagem de uma nova linguagem, começamos, s
 ---
 ## <a name="parte4">O que é npm?</a>
 
+O que é NPM?
+
+NPM é um acrônimo para node package manager. Sabendo que o NPM é um gerenciador de pacotes, vocês concluem que ele serve para gerenciar algumas funcionalidades dentro do projeto.
+
+Com base nisso, podemos dizer que: pacotes são bibliotecas ou outros projetos Node, que são feitos para ajudar um outro desenvolvedor. É possível ter vários pacotes dentro de um mesmo projeto.
+
+Existe um arquivo chamado package.json que possui todas as informações do projeto. Temos nome, versão e, além disso, temos várias outras tags, que identificam o nosso projeto.
+
+Para saberem quais pacotes estão disponíveis para o NPM, bastam acessar o site https://www.npmjs.com/ e pesquisarem por um pacote. Utilizando este gerenciador, vocês ficam restritos a utilizarem, apenas, pacotes que estejam no repositório oficial. Porém, ele tem uma extensão, onde vocês podem pesquisar, direto do seu Git Hub, por seus projetos.
+
+Vamos supor que vocês não queiram implementar um projeto em Node, mas, desejam utilizá-lo para gerenciar as suas dependências. Isso é totalmente possível. Existem pessoas que utilizam o NPM para administrarem todo projeto de front-end, escrito em javascript.
+
+Com Node é possível criarem um script dentro do arquivo package.json e executá-lo com o NPM. Vocês podem utilizar este arquivo para moverem arquivos para uma determinada pasta, por exemplo. Vocês conseguirão inserir comandos de terminal, ter este efeito sendo aplicado, tudo isso utilizando o NPM.
+
+Além de conseguir adicionar, remover e dar update, dentro dos seus pacotes, vocês têm a possibilidade de publicar os seus próprios pacotes. Basta que tenham uma conta no site do NPM para que consigam ajudar com desenvolvimento de novos pacotes.
+
+Com este conteúdo, já é possível ter uma base do que é o NPM e para que ele serve. Há mais um fato importante que devem saber: O NPM fornece alguns comandos.
+
+Vejam código abaixo:
+
+Para ter um guia de utilização, vocês podem digitar o comando abaixo, no terminal:
+```
+$ npm help npm
+```
+Com este conteúdo vocês podem tirar muitas dúvidas de como aprender e como utilizar. Existem exemplos práticos para que possam se basear, também. É uma documentação muito boa e nós aconselhamos a leitura de todo conteúdo, para que não fiquem sem entender sobre esta ferramenta maravilhosa.
+
+
+
 [Voltar ao Índice](#indice)
 
 ---
