@@ -146,6 +146,77 @@ Com este conteúdo vocês podem tirar muitas dúvidas de como aprender e como ut
 ---
 ## <a name="parte5">Criando o primeiro projeto</a>
 
+
+Criando o primeiro projeto
+Neste módulo ensinaremos como iniciar um projeto Node.js. Abram o terminal, para que possamos exemplificar melhor e vocês possam treinar. Para quem utiliza Windows, recomendamos instalarem o Git Bash, caso ainda não tenham instalado.
+
+Para criarmos o arquivo package.json, onde ficarão informações do projeto e os guias para o gerenciamento dos pacotes, vocês rodem o comando, abaixo:
+
+### npm ini
+
+Assim que rodarem este comando, no terminal, vocês terão que passar várias informações que são referentes ao projeto. O comando utilizará estas informações para criar o arquivo package.json, que citamos acima.
+
+```
+name: (node) node-son
+version: (1.0.0)
+description: School of Net
+entry point: (index.js) app.js
+test command:
+git repository:
+keywords: school of net, init node.js, nodejs
+author: Leonan <SON>
+license: (ISC)
+```
+
+Depois de preencherem todos os dados, ele gerará um código e perguntará se está ok. Em caso afirmativo, digitamos yes e o arquivo será criado na pasta raiz, de acordo com as informações passadas. Notem que deixamos alguns itens em branco.
+
+Vale lembrar que existe a possibilidade de criarmos um arquivo de forma manual, desde que ele tenha o nome de package.json e que esteja no formato json padrão.
+
+```json
+{
+  "name": "node-son",
+  "version": "1.0.0",
+  "description": "School of Net",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "school",
+    "of",
+    "net",
+    "init",
+    "node.js",
+    "nodejs"
+  ],
+  "author": "Leonan <SON>",
+  "license": "ISC"
+}
+```
+
+Este é o código do arquivo criado. Vocês devem ter o mesmo resultado, com algum nome diferente, por exemplo. Este código não terá efeito nenhum sobre a aplicação, se vocês não utilizarem o npm para ativar.
+
+Como informamos que o nosso arquivo de entrada será o app.js, criaremos este arquivo para que o sistema não fique perdido procurando o arquivo e acabe gerando um erro.
+
+### Conteúdo de app.js
+
+```javascript
+require('Hello World');
+var a = 2;
+var b = 2;
+var c = a + b;
+console.log('c -> ', c);
+```
+
+Para rodar este arquivo e verificar se está, realmente, funcionando, basta ir até o terminal e rodar o comando:
+
+```
+node app.js
+```
+
+Vocês já terão a execução do arquivo, os itens impressos na tela do terminal, assim como pedido no primeiro aplicativo criado com node.
+
+
 [Voltar ao Índice](#indice)
 
 ---
