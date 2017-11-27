@@ -312,6 +312,128 @@ Através do html, surgiram todos os frameworks node.js voltados para web. Os cri
 ---
 ## <a name="parte7">Como utilizar módulos </a>
 
+Falaremos mais sobre módulos, para que não reste nenhuma dúvida sobre o assunto. Explicaremos como funciona a parte de modularização do código, quando forem utilizar a plataforma node.js.
+
+Pode parecer que existam duas formas de trabalhar com modularização, mas, há apenas uma forma. Uma é um alias da outra.
+
+Criem um arquivo chamado handle.js, na pasta raiz. Pegaremos a função handle, criada no módulo anterior, e passaremos para este arquivo. Em seguida, apagaremos ou comentaremos a função, no arquivo app.js, para não duplicarmos.
+
+### Conteúdo arquivo handle.js
+
+```javascript
+
+
+function handle(request,response){
+
+    response.writeHead(200,{
+       'Content-Type': 'text/html'
+    });
+
+    response.write("<!DOCTYPE html>");
+    response.write("<html>");
+    response.write("<head><title>Http Module</title></head>");
+    response.write("<body>");
+    response.write("<h1>Hello from http module SON</h1>");
+    response.write("</body>");
+    response.write("</html>");
+
+    response.end();
+}
+```
+
+Para importarmos um módulo, vimos que basta chamarmos a palavra reservada require e passarmos o nome do módulo. Mostraremos como fazemos para exportar um código ou uma função.
+
+Se tentarmos importar com o require, verão que não terão sucesso, porque o Node não reconhecerá como sendo um módulo. O que temos que fazer é, tornar o nosso arquivo handle.j um módulo para que possa ser carregado como tal.
+
+### Exportando a função handle
+
+```
+module.exports = handle;
+```
+
+Desta forma, estamos exportando o nosso arquivo handle, para conseguirmos fazer a importação dele no nosso arquivo app.js. Vejam como ficou a importação do módulo handle.js.
+
+```
+var handle = require('./handle');
+```
+
+Agora, temos o mesmo efeito de antes, porém, estamos trabalhando com modularização. Assim, temos as responsabilidades separadas e um código mais limpo e organizado.
+
+Passamos a ter dois módulos em nosso arquivo app.js:
+
+1- O módulo http, que é nativo do Node
+2- O módulo handle, que foi criado por nós
+
+### Outra forma de exportar utilizando alias
+
+Temos uma outra forma de exportar um módulo, que é um alias do primeiro modo de exportar.
+
+Vejam código abaixo:
+
+```
+exports.fn = handle;
+```
+
+Para conseguirmos utilizar este segundo módulo, temos que trabalhar com objetos e, por isso, adicionamos .fn, porque estamos criando uma propriedade chamada fn, que terá a função como conteúdo. Desta forma, temos que alterar a maneira de chamar a função, também, no arquivo app.js. Vejam abaixo:
+
+```
+var server = http.createServer(hangle.fn);
+```
+
+Temos que acessar a propriedade fn do objeto handle, já que se trata de um objeto. Mas temos uma particularidade, como um modo é um alias do outro, o Node encara isso com uma escala de importância.
+
+Se tentarem utilizar as duas formas de exportação de módulos, o Node dará preferência a primeira e anulará a segunda forma, porque se trata de um alias, apenas. Vejam os dois modos abaixo:
+
+```
+exports.fn = handle;
+module.exports = handle;
+```
+
+Assim, o module.exports, será interpretado pelo node e o outro será descartado. Se alguma função estiver sendo acessada por objetos, vocês deverão trocar, novamente.
+
+```
+var server = http.createServer(hangle);
+```
+
+Vocês poderão escolher a forma que gostam de trabalhar. Lembrem-se que, caso utilizem as duas formas, a forma de alias será, sempre, descartada, não importanto a ordem ou quantas funções existirem.
+
+Para resolver este problema, basta utilizarem a função padrão, que é o modo mais indicado. Vocês podem trabalhar com objetos, utilizando o modo padrão. Criem um arquivo chamado name.js e insiram o código abaixo:
+
+```
+//Modo 1
+module.exports.name = function(){
+    console.log('My name is Leonan');
+}
+//Modo 2
+module.exports = {
+    name: function (){
+        console.log("Leonan");
+    },
+    lastname: function (){
+        console.log("Luppi");
+    },
+}
+```
+
+Desta forma vocês podem importar o módulo, no app.js, da seguinte maneira:
+
+```
+//Modo 1
+var name = require('./name');
+name.name();
+//Modo 2
+name.name();
+name.lastname();
+
+```
+
+Assim, estamos trabalhando da forma correta e não teremos problemas de conflitos.
+
+### Conclusão
+O mais importante é vocês entenderem que podemos criar quantos módulos quisermos, basta criarmos arquivos e exportá-los. Podemos exportar, desde arquivos simples, apenas com textos, até grandes arquivos, com muitas funções e regras de negócio. Basta trabalharem da maneira correta e organizada, com os exports e imports.
+
+Criem mais alguns arquivos, exportem e depois façam a importação, para irem treinando e fixando este conceito.
+
 [Voltar ao Índice](#indice)
 
 ---
