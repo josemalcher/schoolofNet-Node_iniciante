@@ -439,6 +439,94 @@ Criem mais alguns arquivos, exportem e depois façam a importação, para irem t
 ---
 ## <a name="parte8">Trabalhando com arquivos</a>
 
+Neste capítulo, ensinaremos como utilizar a classe de arquivos. Vocês aprenderão a manipular arquivos na aplicação, usando a API, nativa do Node.
+
+É muito importante sabermos manipular arquivos, porque existem alguns módulos que necessitam da leitura do file system. Um exemplo que podemos citar é o Sequelize, um ORM que utiliza um banco de dados.
+
+### Criando arquivos
+
+Criaremos um arquivo chamado file.js e tentaremos simular alguns problemas, para resolvê-los, em seguida. Assim, facilitará o entendimento.
+
+Suponham que precisemos escrever dentro de um arquivo. Escreveremos qualquer tipo de string dentro de um arquivo, utilizando o file system. Vejam o código abaixo:
+```javascript
+var fs = require('fs');
+
+fs
+    .writeFile('data.txt' , 'Hello world from SON' , function (err) {
+        if(err){
+            throw err;
+        }
+    });
+```
+
+Notem que, primeiro importamos a classe File System e atribuímos a variável fs. Em seguida, utilizamos o método writeFile, com os seguintes parâmetros:
+
+1- Nome do arquivo  
+2- Conteúdo do arquivo  
+3- Função que recebe um erro como parâmetro  
+
+Após, fizemos uma verificação. Se existir erro, a função mostrará, se não houver erro, segue o fluxo da programação.
+
+Vale lembrar que, todas as API são assíncronas, mas, existem métodos que são síncronos. Vocês podem escolher, de acordo com a necessidade do momento.
+
+### Lendo arquivos
+
+Depois de termos criado um arquivo com um conteúdo, precisamos ler este arquivo. É o que mostraremos a seguir.
+
+```javascript
+var fs = require('fs');
+
+fs
+    .readFile('data.txt', function (err,data) {
+        if(err){
+            throw err;
+        }
+        console.log(data.toString('utf8'));
+    });
+```
+
+A leitura de um arquivo é muito semelhante à criação. Observem que, apenas alteramos o método para readFile e depois passamos dois parâmetros:
+
+1- Caminho do arquivo em sua estrutura de pastas  
+2- Função que recebe um erro(err) e o conteúdo do arquivo que foi lido(data)  
+
+Em seguida, fizemos a mesma verificação do erro. Caso não tenha o erro, imprimimos o conteúdo como string, na codificação utf8.
+
+Como nosso arquivo criado está na mesma pasta do nosso arquivo file.js, não precisamos colocar o caminho relativo. Saibam que, se tiverem uma estrutura de pastas mais complexa, vocês deverão passar o endereço completo do arquivo, para que a leitura possa ser concluída.
+
+### Lendo arquivos de um diretório
+```javascript
+.readdir('.', function (err,files) {
+    if(err){
+        throw err;
+    }
+
+    for (var file in files){
+        console.log(files[file]);
+    }
+});
+```
+
+Com o método readdir, conseguimos ler todos os arquivos que estiverem dentro do diretório. Basta passarmos o caminho do diretório, no primeiro parâmetro, e depois, uma função que recebe err e files, assim como as anteriores.
+
+Em seguida, percorremos o resultado com uma estrutura de repetição for e, obteremos todos os arquivos e pastas, que se encontram dentro do nosso diretório raiz.
+
+### Filtrando resultados
+
+```javascript
+.readdirSync('.')
+.filter(function (file) {
+    return (file.endsWith('.js'));
+})
+.forEach(function (file) {
+    console.log(file);
+});
+```
+
+Percebam que utilizamos o mesmo método, porém de forma síncrona e filtramos, somente, os arquivos terminados em .js. Desta forma, trabalhamos com filtros e lemos, somente, os arquivos filtrados.
+
+Observem que não existe segredo ao trabalhar com arquivos no Node.
+
 [Voltar ao Índice](#indice)
 
 ---
