@@ -26,5 +26,5 @@ function handle(request, response) {
 
     response.end();
 }
-//export.fn = handle;         // alias do modulo exporte
-module.exports = handle;   // node vai priorizar o module
+exports.fn = handle;         // alias do modulo exporte
+//module.exports = handle;   // node vai priorizar o module
