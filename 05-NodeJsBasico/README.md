@@ -739,6 +739,40 @@ O conceito dos parâmetros para adicionarmos as dependências ao arquivo package
 ---
 ## <a name="parte12">Publicar um pacote no npm</a>
 
+Ensinaremos a publicar um pacote no repositório oficial do site npmjs.com. Da mesma forma que conseguimos baixar, também, podemos subir pacotes próprios.
+
+Assim como vocês já podem ter usado um pacote que alguém disponibilizou, vocês podem ajudar alguém, publicando um pacote que seja útil para a comunidade.
+
+### Primeiro passo
+
+Criem uma conta dentro do site. Acessem sign up e façam o cadastro, lembrando que o username será o nome de registro no site e será o nome que aparecerá em todos os seus pacotes enviados.
+
+Depois de preencherem todos os dados e aceitarem os termos e condições de uso, vocês poderão enviar seus pacotes para o repositório.
+
+### Segundo passo
+
+É necessário saber que o pacote deve, obrigatoriamente, conter o arquivo package.json na pasta raiz, com as principais informações, que são: nome, versão, main, scripts, keywords, autor, licença e dependências. Caso queiram colocar outras informações, é possível, mas, as citadas, são obrigatórias.
+
+Depois de criado o pacote com o arquivo package.json, vocês rodarão os seguintes comandos:
+
+```
+npm adduser
+```
+
+Em seguida, colocarão usuário, senha e email. Desta forma, estarão logados no site.
+
+Depois de logados no site, via terminal, vocês acessarão a pasta do pacote e rodarão o comando de publicação:
+
+```
+npm publish
+```
+
+O comando subirá o projeto para o repositório, onde poderá ser encontrado, posteriormente.
+
+A cada atualização do pacote, vocês deverão informar a nova versão, para que o site faça este controle.
+
+Após este processo, o pacote estará pronto para ser encontrado no search, por todos usuários que pesquisarem pelas keywords que configuramos. Bastará fazer a instalação e utilizar nos projetos.
+
 [Voltar ao Índice](#indice)
 
 ---
