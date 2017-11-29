@@ -701,6 +701,39 @@ Para treinarem, seria interessante fazerem a instalação de mais um pacote e n�
 ---
 ## <a name="parte11">Remover e atualizar pacotes externos</a>
 
+Mostraremos como atualizar ou remover pacotes que já não são mais úteis, em nossos projetos.
+
+Como todos sabem, durante um projeto de software, nunca sabemos exatamente quais pacotes utilizaremos. Sempre, há muitas adições e remoções, até chegarmos a um projeto final.
+
+### Removendo um pacote
+
+Para removermos um pacote, o npm disponibiliza uma função tão simples, quanto a de instalação:
+
+```
+npm uninstall console-log-hello-world --save-dev
+```
+
+```
+npm uninstall console-log-hello-world --save
+```
+
+Utilizando os comandos, acima, vocês desvinculam tanto do arquivo package.json, quanto da pasta node_modules. Esta é a remoção completa do pacote. Algumas pessoas removem apenas do arquivo package.json, manualmente, e acham que está desinstalando o pacote, mas se enganam, porque a pasta node_modules, ainda está presente.
+
+Observem que, da mesma forma que adicionamos as dependências na instalação, devemos adicionar os parâmetros para que as dependências sejam removidas do arquivo package.json.
+
+### Atualização de pacotes
+
+Do mesmo jeito que precisamos remover pacotes durante o desenvolvimento, pode haver a necessidade de uma atualização de pacote, devido a algum conflito, por questões de segurança ou para manter o pacote atualizado.
+
+Existem duas formas de fazermos esta atualização:
+
+1- Rodando o comando de instalação novamente  
+    1.2- NPM INSTALL CONSOLE-LOG-HELLO-WORLD  
+2- Rodando o comando de update  
+    2.1- NPM UPDATE CONSOLE-LOG-HELLO-WORLD  
+
+O conceito dos parâmetros para adicionarmos as dependências ao arquivo package.json, valem, também, para o comando de update.
+
 [Voltar ao Índice](#indice)
 
 ---
