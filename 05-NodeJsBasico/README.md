@@ -641,6 +641,61 @@ Façam testes e leiam com calma. Este assunto não é tão simples, mas lendo co
 ---
 ## <a name="parte10">Adicionar pacotes externos</a>
 
+Ensinaremos trabalhar com pacotes externos, que é uma tarefa muito simples. O npm já faz esta tarefa pra nós.
+
+Vocês aprenderão a pesquisar e adicionar algo que seja externo, em seu projeto. Basta entrar no site https://www.npmjs.com/ e pesquisar o pacote que desejar.
+
+Para exemplificar, pesquisaremos por um pacote chamado Hello World, que é responsável por dar um console log em nosso projeto.
+
+![Adicionar pacotes externos](https://github.com/josemalcher/schoolofNet-Node_iniciante/blob/master/05-NodeJsBasico/git-img/node_npm_search.png?raw=true)
+
+Na imagem vocês podem ver o resultado da busca e a página interna do pacote, onde mostra o comando para instalação. Rodaremos o comando abaixo:
+
+npm install console-log-hello-world
+
+Com o comando, acima, teremos o pacote instalado, porém, se olharem o arquivo package.json, não haverá nenhuma informação sobre o projeto possuir este pacote ou que ele dependa deste pacote.
+
+Para resolvermos este problema, basta adicionarmos um parâmetro, ao comando de instalação. Rode o comando, abaixo, novamente:
+
+```javascript
+npm install console-log-hello-world --save
+```
+
+Desta forma, será adicionada a dependência no arquivo package.json e, quando rodarem o projeto, em outro local, basta rodar o comando:
+
+```
+npm install
+```
+
+Todas as dependências que estiverem relacionadas, serão instaladas, automaticamente, pelo npm. Esta é a vantagem de utilizarmos o gerenciador. Prestem atenção quando forem instalar algum pacote. Decidam se ele faz parte, apenas, do desenvolvimento ou, se ele faz parte do projeto geral, pois existem dois parâmetros a serem adicionados como dependência: desenvolvimento e produção.
+
+Parâmetro  |	Tipo  |	Descrição
+----- | ----- | ----- 
+--save	| Produção	| Pertence ao ambiente de produção e ao ambiente de desenvolvimento
+--save-dev |	Desenvolvimento  | Pertence somente ao ambiente de desenvolvimento
+
+Depois que o pacote é instalado, observem que é criada uma pasta chamada node_modules, onde estarão instaladas todas as dependências do projeto.
+
+###Importando pacote externo
+```
+require('console-log-hello-world');
+```
+Como é um pacote externo, utilizamos somente o require, seguido do nome da pasta, criada dentro da pasta node_modules. Vocês podem verificar a chamada, na imagem acima, ou, se utilizarem uma IDE, ela ajudará com o auto complete.
+
+Depois de, instalado e importado em nosso arquivo app.js, rodaremos o arquivo no terminal.
+
+```
+node app.js
+```
+
+Observem que teremos o Hello World sendo impresso. Significa que a biblioteca está funcionando.
+
+### Conclusão
+
+Não deixem de verificar o arquivo package.json para checarem as dependências que foram adicionadas. Desta forma, vocês entenderão o funcionamento do npm.
+
+Para treinarem, seria interessante fazerem a instalação de mais um pacote e não esqueçam de adicionar como dependência do projeto ou de produção.
+
 [Voltar ao Índice](#indice)
 
 ---
