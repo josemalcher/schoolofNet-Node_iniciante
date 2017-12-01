@@ -1011,6 +1011,18 @@ A estrutura de rotas é criada muito rapidamente e de forma muito simples. Você
 ---
 ## <a name="parte16">Finalizando</a>
 
+Estamos finalizando mais um conteúdo da School of Net.
+
+Caso tenham ficado com alguma dúvida, pedimos que entrem em contato com algum tutor da nossa equipe.
+
+Esperamos que tenham gostado do conteúdo oferecido e pedimos que deixem sugestões, em nossa fábrica de cursos, para que possamos oferecer conteúdos de qualidade e que atendam às suas necessidades.
+
+Para quem ainda não conhece, a fábrica de cursos é um espaço aberto aos alunos, para que eles possam contribuir com a agenda mensal da School of Net.
+
+É importante dizer que este conteúdo se trata, apenas, de conceitos básicos e iniciais sobre Node.js. Existem muito mais conteúdos sobre Node.js, que vocês podem encontrar na School of Net, ou sugerir na fábrica.
+
+Até o próximo conteúdo.
+
 [Voltar ao Índice](#indice)
 
 ---
