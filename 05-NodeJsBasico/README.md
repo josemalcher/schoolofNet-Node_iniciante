@@ -874,6 +874,40 @@ Leiam com atenção este conteúdo, refaçam quantas vezes forem necessárias, p
 ---
 ## <a name="parte14">Principais frameworks</a>
 
+Apresentaremos os principais frameworks que existem para Node.js, atualmente.
+
+### Express
+
+Sem dúvida, este é o framework mais utilizado no mercado. Com ele vocês conseguem fazer tudo muito facilmente. Ele encapsula tudo que vocês precisam, de uma maneira muito mais fácil. Utiliza funções programadas, o que proporciona uma produtividade muito maior, em vez de programar, manualmente.
+
+O principal diferencial do express é que ele já é muito conhecido e por ser conhecido existem muitas implementações que tendem a melhorá-lo. Além disso, ele tem a documentação traduzida em vários idiomas, inclusive, uma parte em português.
+
+Além de todas estas vantagens, ele disponibiliza um gerador que é capaz de executar um projeto simples. Nós não aconselhamos a utilização deste boilerplate, quando forem utilizar um projeto em produção, porque o projeto criado é muito generalista, onde vocês não têm uma separação de módulos. Ele pode ser muito bom para aprendizagem, mas para um projeto real, não é aconselhável.
+
+### Sails
+
+Quem veio do rails, se identificará com este framework, onde o foco é a produtividade. Com este framework, vocês conseguem fazer um CRUD, em segundos. Ele tem uma feature, chamada blueprints, que permite vocês fazerem CRUDs, diretamente, na url. O que torna o trabalho muito mais dinâmico.
+
+Além disso, ele já disponibiliza um boilerplate, pronto para produção, ou seja, vocês têm tudo que é necessário para rodarem o projeto, desde o início até a produção. Vocês têm suporte a email, ORM e várias outras implementações de bibliotecas próprias, o que faz com que o framework se torne muito mais produtivo, que os outros.
+
+A principal característica é a ORM própria, que permite fazer a comunicação entre banco relacional e não relacional, ao mesmo tempo. Isso significa que vocês podem ter duas conexões conversando entre si.
+
+Disponibiliza blueprints e boilerplate viáveis, para produção, onde já vem com email, autenticações via polices e vários suportes ao plugin, além de já vir com websockets integrado. Caso queiram utilizar websockets para o projeto, o sails é uma ótima dica.
+
+Referente à documentação, ela está bem amparada, embora exista somente em inglês, ela é muito organizada e completa.
+
+### Hapi
+
+O hapi vem crescendo muito nos últimos tempos, porque vocês conseguem fazer uma aplicação de forma a reutilizar partes do seu código, muito facilmente. Além disso, vocês podem escrever uma aplicação, muito simples e muito performática, sem contar que o projeto sempre será muito mais enxuto que os demais, pelo fato de ser um framework muito pequeno.
+
+Além destas características, a parte de documentação e tutoriais são excelentes. Conta, também, com uma lista de plugins próprios, para ajudar, cada vez mais, o desenvolvedor. Possui um grande ecossistema, voltado, especificamente, para o hapi.
+
+A comunidade ainda é pequena, em comparação às outras, mas vem ganhando seu espaço.
+
+### Conclusão
+
+Estas três opções de framework são muito utilizadas, atualmente. Podemos dizer que cerca de 80 a 85% dos projetos são desenvolvidos com uma destas 3 plataformas. Portanto, vale a pena o estudo de cada uma delas. Depois, basta ver qual se adapta melhor ao projeto e fazer a escolha.
+
 [Voltar ao Índice](#indice)
 
 ---
