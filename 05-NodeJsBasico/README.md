@@ -913,6 +913,99 @@ Estas três opções de framework são muito utilizadas, atualmente. Podemos diz
 ---
 ## <a name="parte15">Iniciando com Express.js</a>
 
+Neste módulo, ensinaremos como iniciar um projeto, utilizando o framework express.js.
+
+Visitem o site http://expressjs.com/, para entenderem melhor como o express funciona. Podemos observar que, o framework é muito minimalista e visa um modo fácil e simples de construir uma aplicação.
+
+Como já foi falado, no módulo anterior, o express conta com um gerador que pode executar um projeto inicial. Caso queiram utilizá-lo, basta instalarem a ferramenta, via npm, seguindo o comando informado no site.
+
+```
+npm install express-generator -g
+```
+
+Adicionamos o parâmetro -g para fazermos a instalação de forma global. Significa que poderemos utilizar o gerador em qualquer local de nosso terminal, não somente na pasta do projeto.
+
+Estamos falando de um framework que visa performance e construir aplicação de forma fácil, tanto APIs quanto web applications. É um dos frameworks mais utilizados do momento.
+
+O projeto é mantido pela StrongLoop/IBM e está em constante atualização.
+
+### Primeiro passo
+
+Criaremos um novo diretório, chamado express, para que possamos dar início a nossa aplicação.
+
+Iniciaremos um novo projeto com o comando: npm init. Como já fizemos, nos primeiros capítulos deste conteúdo.
+
+Depois de preencherem todos os dados e terem gerado o arquivo package.json, instalaremos o express, como dependência do projeto, com o comando abaixo:
+
+```
+npm install express --save
+```
+
+Após a instalação, criaremos um arquivo chamado index.js, que é o entry point que configuramos na propriedade main, do arquivo package.json. Vejam o conteúdo do arquivo index.js.
+
+```javascript
+var express = require('express');
+
+var app = express();
+
+app.get('/', function (req,res) {
+   res.send('Hello from express SON');
+});
+
+app.get('/hello', function (req,res) {
+   res.json({
+       message: "This is my router hello",
+       framework: 'expressjs.com'
+   });
+});
+
+app.listen(3000, function () {
+    console.log('express has been started!');
+});
+```
+
+Se analisarem o código, verão que, apenas, importamos o pacote que instalamos do express e atribuímos uma instância para uma variável chamada app.
+
+Em seguida, basta começarmos a criar as rotas que quisermos, utilizando o verbo http, que quisermos. Em nossos exemplos, utilizamos o verbo get, passando a rota como primeiro parâmetro e uma função, como segundo parâmetro.
+
+A função recebe a requisição e a response, como parâmetros.
+
+Na rota principal http://localhost:3000/, retornamos uma mensagem no formato text/plain. Já na segunda rota **http://localhost:3000/hello, estamos retornando um json.
+
+Depois, basta que criemos o server e passemos a porta que queremos. Após as rotas serem criadas e o servidor configurado, executamos o arquivo:
+
+```
+node index.js
+```
+
+Acessando a rota hello, teremos o seguinte resultado:
+
+![node_express_hello](https://github.com/josemalcher/schoolofNet-Node_iniciante/blob/master/05-NodeJsBasico/git-img/node_express_hello.png?raw=true)
+
+Vocês podem ver que o que era muito difícil de fazer, utilizando a classe http do node, manualmente, nós fizemos, facilmente, com o express. Isso ocorre porque ele já traz tudo pronto para utilizar, conforme foi explicado no capítulo anterior.
+
+Para finalizarmos o conteúdo, mostraremos como criar uma rota com parâmetros, o que pode ser muito utilizado.
+
+```
+app.get('/hello/:name', function (req,res) {
+   res.send('Welcome ' + req.params.name + '!' );
+});
+```
+
+Precisamos, apenas, colocar dois pontos(:) e informar o identificador do parâmetro. Este valor será utilizado para resgatá-lo, posteriormente. Notem que, para resgatar o valor informado, utilizamos req.params.name. Isso significa que, se acessarmos http://localhost/hello/Leonan, teremos o seguinte resultado:
+
+```
+Welcome Leonan!
+```
+
+Porque o nome passado na url, será resgatado de forma dinâmica, pela função.
+
+### Conclusão
+
+Conforme explicamos, no capítulo anterior, trabalhar com express é muito fácil e rápido. Com pouco tempo, vocês são capazes de criarem algo simples, porém muito sólido.
+
+A estrutura de rotas é criada muito rapidamente e de forma muito simples. Vocês têm suporte a tudo que uma aplicação precisa, desde suporte ao http, até suporte a banco de dados e template engine.
+
 [Voltar ao Índice](#indice)
 
 ---
