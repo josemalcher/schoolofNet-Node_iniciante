@@ -5,6 +5,11 @@ var app = express();
 var routes = require('./routes');
 var bodyParser = require('body-parser');
 
+//template
+app.set('view engine', 'pug');
+//ou
+app.set('view', './views_dir');
+
 //Escrevendo middlewares // primeiro
 app.use(function (req, res, next) {
     req.name = 'Passando por request';
@@ -14,7 +19,10 @@ app.use(function (req, res, next) {
 
 
 app.get('/', function (req, res) {
-    res.send('Olá mundo!!! Com express!' + req.name);
+    res.render('index',{
+        message:'Olá... usando template engine!!'
+    });
+    //res.send('Olá mundo!!! Com express!' + req.name);
 });
 
 app.get('/word', function (req, res) {
