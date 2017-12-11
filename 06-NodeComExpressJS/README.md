@@ -333,12 +333,112 @@ app.listen(3000, function () {
 
 ## <a name="parte9">Middlewares</a>
 
+
+
 [Voltar ao Índice](#indice)
 
 ---
 
 
 ## <a name="parte10">Escrevendo middlewares</a>
+
+```javascript
+var express = require('express');
+var path = require('path');
+var app = express();
+//var http = require('http');
+var routes = require('./routes');
+var bodyParser = require('body-parser');
+
+//Escrevendo middlewares // primeiro
+app.use(function (req, res, next) {
+    req.name = 'Passando por request';
+    console.log('UM MIDDLEWARE CUstomizado!!');
+    next();
+});
+
+
+app.get('/', function (req, res) {
+    res.send('Olá mundo!!! Com express!' + req.name);
+});
+
+app.get('/word', function (req, res) {
+    res.send('Olá Mundo - Por app GET /word')
+} );
+app.use('/hello', routes);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended:false
+}))
+
+/*
+http.createServer(app).listen(3000, function () {
+    console.log('Express Startado!!!');
+});
+*/
+
+app.use('/public',express.static(path.join(__dirname, 'public')));
+
+
+app.listen(3000, function () {
+    console.log('Express Startado!!!');
+
+});
+
+```
+
+```javascript
+var express = require('express');
+var router = express.Router();
+
+//Escrevendo middlewares // primeiro
+router.use(function (req, res, next) {
+    console.log('UM MIDDLEWARE CUstomizado dentro de ROUTER!!')
+    next();
+});
+
+router.get('/', function (req, res) {
+    //console.log(req);
+    res.json({
+        message: 'Olá Mundo!! ;-)'
+    })
+});
+
+router.get('/a*r', function (req, res) {
+    res.send('router a?r'); // a é opcional || expressão regular 'a+r' ou 'a*r'
+});
+
+router.get('/params/:name', function (req, res) {
+    res.json({
+        params: req.params,
+        host: req.hostname,
+        headers: req.header,
+        port : req.port
+    })
+});
+
+router.post('/body',function (req, res) {
+    res.json(req.body)
+});
+
+/*router.get('/res', function (req, res) {
+    res.status(201).send('test');
+});*/
+router.get('/res', function (req, res) {
+    res.status(201).json({
+        name: 'Jose ',
+        lastname: 'Malcher'
+    });
+});
+router.get('/res', function (req, res) { // template engine
+    res.render('index',{
+        // js
+    })
+});
+
+module.exports = router;
+```
+
 
 [Voltar ao Índice](#indice)
 

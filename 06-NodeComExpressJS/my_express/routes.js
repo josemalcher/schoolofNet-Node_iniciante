@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+//Escrevendo middlewares // primeiro
+router.use(function (req, res, next) {
+    console.log('UM MIDDLEWARE CUstomizado dentro de ROUTER!!')
+    next();
+});
+
 router.get('/', function (req, res) {
     //console.log(req);
     res.json({
