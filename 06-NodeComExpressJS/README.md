@@ -447,6 +447,29 @@ module.exports = router;
 
 ## <a name="parte11">Capturar erros </a>
 
+```javascript
+//Capturando erros - sempre no final
+
+app.use(function(err, req, res,next){
+    res.status(500)
+        .json({
+            message: 'Alguma coisa Errada Aconteceu!!'
+        });
+});
+
+```
+
+```javascript
+
+router.get('/', function (req, res,next) {
+    //console.log(req);
+    /*res.json({
+        message: 'Olá Mundo!! ;-)'
+    })*/
+    next(new Error('Erro Customizado!!'))
+});
+```
+
 [Voltar ao Índice](#indice)
 
 ---

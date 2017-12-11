@@ -24,7 +24,9 @@ app.use('/hello', routes);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended:false
-}))
+}));
+
+
 
 /*
 http.createServer(app).listen(3000, function () {
@@ -34,8 +36,19 @@ http.createServer(app).listen(3000, function () {
 
 app.use('/public',express.static(path.join(__dirname, 'public')));
 
+//Capturando erros - sempre no final
+
+app.use(function(err, req, res,next){
+    res.status(500)
+        .json({
+            message: 'Alguma coisa Errada Aconteceu!!'
+        });
+});
+
+
 
 app.listen(3000, function () {
     console.log('Express Startado!!!');
 
 });
+

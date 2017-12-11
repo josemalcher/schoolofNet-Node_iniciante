@@ -7,11 +7,12 @@ router.use(function (req, res, next) {
     next();
 });
 
-router.get('/', function (req, res) {
+router.get('/', function (req, res,next) {
     //console.log(req);
-    res.json({
+    /*res.json({
         message: 'Olá Mundo!! ;-)'
-    })
+    })*/
+    next(new Error('Erro Customizado!!'))
 });
 
 router.get('/a*r', function (req, res) {
