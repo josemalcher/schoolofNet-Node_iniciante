@@ -15,7 +15,7 @@ router.get('/a*r', function (req, res) {
 router.get('/params/:name', function (req, res) {
     res.json({
         params: req.params,
-        host: req.host,
+        host: req.hostname,
         headers: req.header,
         port : req.port
     })
@@ -23,6 +23,21 @@ router.get('/params/:name', function (req, res) {
 
 router.post('/body',function (req, res) {
     res.json(req.body)
-})
+});
+
+/*router.get('/res', function (req, res) {
+    res.status(201).send('test');
+});*/
+router.get('/res', function (req, res) {
+    res.status(201).json({
+        name: 'Jose ',
+        lastname: 'Malcher'
+    });
+});
+router.get('/res', function (req, res) { // template engine
+    res.render('index',{
+        // js
+    })
+});
 
 module.exports = router;
