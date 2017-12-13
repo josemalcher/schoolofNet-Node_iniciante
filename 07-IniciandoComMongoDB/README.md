@@ -72,6 +72,23 @@ $ mongod
 ---
 ## <a name="parte6">Inserindo um documento </a>
 
+```javascript
+db.getCollection('user').insertOne({
+    name: 'José Malcher jr.',
+    email: 'contato@josemalcher.net',
+    idaed: 33,
+    tipoBoleano: true,
+    endereco: {
+        rua: 'Tal tal tal',
+        numero: 1220
+    },
+    tags: [a,b,c,d],
+    objetoNulo: null,
+    _id: new ObjectId(),
+    regex: RegExp(),
+})
+```
+
 [Voltar ao Índice](#indice)
 
 ---
