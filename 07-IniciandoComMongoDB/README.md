@@ -25,6 +25,12 @@ https://www.schoolofnet.com/curso-iniciando-com-mongodb-rev2/
 
 ## <a name="parte1">Boa vindas</a>
 
+https://www.mongodb.com/
+
+https://robomongo.org/download
+
+
+
 [Voltar ao Índice](#indice)
 
 ---
@@ -35,10 +41,26 @@ https://www.schoolofnet.com/curso-iniciando-com-mongodb-rev2/
 ---
 ## <a name="parte3">O MongoDB</a>
 
+http://blog.caelum.com.br/bancos-de-dados-nao-relacionais-e-o-movimento-nosql/
+
+https://sirobotica.wordpress.com/2014/10/23/nosql-o-que-e-vantagens-e-limitacoes/
+
+https://pt.stackoverflow.com/questions/191919/banco-de-dados-n%C3%A3o-relacionais-vs-banco-de-dados-relacionais
+
 [Voltar ao Índice](#indice)
 
 ---
 ## <a name="parte4">Iniciando BD e criando conexão no RoboMongo</a>
+
+Criar pasta /data/bd
+
+```
+C:\Program Files\MongoDB\Server\3.6\bin
+$ mongod
+```
+
+
+
 
 [Voltar ao Índice](#indice)
 
