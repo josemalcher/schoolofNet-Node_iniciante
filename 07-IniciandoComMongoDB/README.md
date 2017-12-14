@@ -231,6 +231,34 @@ db.getCollection('user').deleteMany({
 ---
 ## <a name="parte11">Operações com database</a>
 
+```
+> show dbs
+
+MongoSON1  0.000GB
+admin      0.000GB
+config     0.000GB
+local      0.000GB
+```
+
+```
+> use MongoSON1
+
+switched to db MongoSON1
+
+> db.getCollection('user').find({})
+//imprime todos os resultados...
+```
+
+```
+> use NovoBanco
+
+
+> db.dropDatabase()
+
+```
+
+
+
 [Voltar ao Índice](#indice)
 
 ---
