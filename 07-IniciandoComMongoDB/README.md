@@ -131,6 +131,47 @@ db.getCollection('produtos').find({
 ---
 ## <a name="parte8">Atualizando documentos</a>
 
+```javascript
+db.getCollection('user').updateOne({
+name:'Maria',age:30},{$set:{age:31}
+})
+```
+
+```javascript
+db.getCollection('produtos').updateOne({
+    _id: ObjectId('5a31baede18a4e201ec6f881'),
+    'dim.altura':2,
+    'dim.largura':2
+    },{ $set:{
+        'dim.altura':200,
+        'dim.largura':200
+        }
+})
+```
+
+```javascript
+db.getCollection('produtos').updateOne({
+    _id: ObjectId('5a31baede18a4e201ec6f881'),
+    'dim.altura':200,
+    'dim.largura':200
+    },{ $set:{
+            tag: ['ela', 'gar', 'modelo']
+           }
+})
+```
+
+```javascript
+db.getCollection('produtos').updateOne({
+    _id: ObjectId('5a31baede18a4e201ec6f881'),
+    'dim.altura':200,
+    'dim.largura':200
+    },{ $set:{
+            tag: ['ela', 'gar', 'modelo']
+        }
+        
+}, {upsert:true}) // <<--- se o doc não existir... será incluso
+```
+
 [Voltar ao Índice](#indice)
 
 ---
