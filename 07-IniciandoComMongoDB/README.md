@@ -189,6 +189,43 @@ db.getCollection('user').deleteOne({
 ---
 ## <a name="parte10">Bulk Operations</a>
 
+```javascript
+db.getCollection('user').insertMany([{
+    name: 'Teste usuário 1',
+    email: 'teste1@gmail.com',
+    age: 12
+    },
+    {
+    name: 'Teste usuário 2',
+    email: 'teste2@gmail.com',
+    age: 14
+    },
+    {
+    name: 'Teste usuário 3',
+    email: 'teste3@gmail.com',
+    age: 15
+    }
+    ])
+```
+
+```javascript
+db.getCollection('user').updateMany({
+    email: 'teste@gmail.com'
+    },{
+        $set:{
+                email: 'testeemail@gmail.com'
+            }
+        })
+```
+
+```javascript
+db.getCollection('user').deleteMany({
+    email: 'testeemail@gmail.com'
+    })
+```
+
+
+
 [Voltar ao Índice](#indice)
 
 ---
