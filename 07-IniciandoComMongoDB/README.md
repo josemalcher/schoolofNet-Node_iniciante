@@ -94,6 +94,38 @@ db.getCollection('user').insertOne({
 ---
 ## <a name="parte7">Buscando documentos </a>
 
+```javascript
+db.getCollection('user').find({
+    _id: ObjectId('5a31b536e18a4e201ec6f87e')
+})
+```
+
+```javascript
+db.getCollection('produtos').insertOne({
+    name: 'Item 4',
+    qtd: 4,
+    dim:{
+        altura: 20,
+        largura: 20
+    }
+})
+```
+
+```javascript
+db.getCollection('produtos').find({
+        'dim.altura': 2,
+        'dim.largura':2
+})
+```
+
+Busca em Arrays
+
+```javascript
+db.getCollection('produtos').find({
+    tag:"TEST"
+})
+```
+
 [Voltar ao Índice](#indice)
 
 ---
