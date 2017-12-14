@@ -264,6 +264,15 @@ switched to db MongoSON1
 ---
 ## <a name="parte12">Operações com collections</a>
 
+```
+> use DbJaCriado
+
+> db.createCollection('teste')
+
+> db.teste.drop()
+
+```
+
 [Voltar ao Índice](#indice)
 
 ---
