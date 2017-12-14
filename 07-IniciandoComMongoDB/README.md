@@ -177,6 +177,13 @@ db.getCollection('produtos').updateOne({
 ---
 ## <a name="parte9">Deletando documentos</a>
 
+```javascript
+db.getCollection('user').deleteOne({
+    //_id: ObjectId('...')
+    email: 'cece@gmail.com'
+})
+```
+
 [Voltar ao Índice](#indice)
 
 ---
