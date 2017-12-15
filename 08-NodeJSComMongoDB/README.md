@@ -62,6 +62,43 @@ http://localhost:3000/
 
 ## <a name="parte3">Configurando nosso projeto - MongoDB/Mongoose</a>
 
+```
+$ npm install mongoose
+```
+
+### app.js
+```javascript
+var mongoose = require('mongoose');
+
+//Mongoose
+var db = mongoose.connect('mongodb://localhost/library').connection;
+
+db.on('open', function () {
+    console.log('Everything is okay, mongoDB is connected');
+});
+
+db.on('error', function () {
+    console.log('Ops! Something went wrong, mongoDB is broken');
+});
+
+var company = mongoose.Schema({
+    name: String
+});
+
+var Company = mongoose.model('Company', company);
+
+Company.create({
+    name: 'Company 1'
+}, function (err, company) {
+    if(err) {
+        console.log('error')
+        return
+    }
+
+    console.log('Created -> ', company)
+});
+
+```
 
 [Voltar ao Índice](#indice)
 

@@ -4,11 +4,41 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+//Mongoose
+var db = mongoose.connect('mongodb://localhost/library').connection;
+
+db.on('open', function () {
+    console.log('Everything is okay, mongoDB is connected');
+});
+
+db.on('error', function () {
+    console.log('Ops! Something went wrong, mongoDB is broken');
+});
+
+var company = mongoose.Schema({
+    name: String
+});
+
+var Company = mongoose.model('Company', company);
+
+Company.create({
+    name: 'Company 1'
+}, function (err, company) {
+    if(err) {
+        console.log('error')
+        return
+    }
+
+    console.log('Created -> ', company)
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
