@@ -27,6 +27,14 @@ Resumo do curso:
 
 ## <a name="parte1">Conhecendo nossa stack</a>
 
+http://expressjs.com/pt-br/
+
+http://handlebarsjs.com/
+
+https://www.mongodb.com/
+
+http://mongoosejs.com/
+
 
 [Voltar ao Índice](#indice)
 
