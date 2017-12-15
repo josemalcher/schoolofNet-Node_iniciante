@@ -42,6 +42,19 @@ http://mongoosejs.com/
 
 ## <a name="parte2">Configurando nosso projeto - Express.js/Handlebars</a>
 
+```
+> express library -e --hbs
+```
+
+https://github.com/pillarjs/hbs
+
+```
+npm start
+```
+
+http://localhost:3000/
+
+
 
 [Voltar ao Índice](#indice)
 
