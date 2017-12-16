@@ -5,12 +5,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var hbs = require('hbs');
 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+//Helppers HBS
+
+hbs.registerHelper('date', function () {
+   return new Date();
+});
 
 //Mongoose
 var db = mongoose.connect('mongodb://localhost/library').connection;

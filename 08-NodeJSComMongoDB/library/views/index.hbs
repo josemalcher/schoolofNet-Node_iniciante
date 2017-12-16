@@ -1,2 +1,23 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<p>Olá {{name}}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>index</th>
+            <th>nome</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{@index}}</td>
+                <td>{{name}}</td>
+                <td>{{#date}}{{/date}}</td>
+                </tr>
+        {{/each}}
+    </tbody>
+</table>
