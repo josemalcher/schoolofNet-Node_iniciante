@@ -144,6 +144,35 @@ router.put('/:id', function (req, res) {
     */
 });
 
+router.delete('/:id', function (req, res) {
+    /**
+     *  findOneAndRemove
+     */
+    Person.findOneAndRemove({
+        _id: req.params.id
+    }, function (err) {
+        if(err) {
+            return;
+        }
+
+        res.send(req.params.id);
+    });
+
+    /**
+     *  remove
+     */
+    /*
+    Person.remove({
+        _id: req.params.id
+    }, function (err) {
+        if(err) {
+            return;
+        }
+
+        res.send(req.params.id);
+    });
+    */
+});
 
 
 module.exports = router;
