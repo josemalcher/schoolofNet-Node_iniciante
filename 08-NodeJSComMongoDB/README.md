@@ -915,6 +915,19 @@ module.exports = router;
 
 ## <a name="parte10">Projeto Final - Montando nossos models</a>
 
+```
+$ express estacionamento -e -hbs
+
+$ npm install
+
+$ npm install mongoose --save
+
+$ npm install bootstrap
+
+$ npm install express-session --save
+```
+
+
 
 [Voltar ao Índice](#indice)
 
