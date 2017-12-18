@@ -1,11 +1,63 @@
+var Car = require('./../models/car');
+
 exports.find = function (req, res) {
-    res.render('car_list');
+    Car.find({}, function (err, car) {
+        if(err) {
+            return;
+        }
+
+        res.render('car_list', {
+            car: car
+        });
+    });
 };
 
 exports.new = function (req, res) {
     res.render('car_new');
 };
 
+exports.create = function (req, res) {
+    Car.create(req.body, function (err, car) {
+        if(err) {
+            return;
+        }
+
+        res.redirect('car');
+    });
+};
+
 exports.edit = function (req, res) {
-    res.render('car_edit');
+    Car.findById(req.params.id, function (err, car) {
+        if(err) {
+            return;
+        }
+
+        res.render('car_edit', {
+            car: car
+        });
+    });
+};
+
+exports.update = function (req, res) {
+    Car.update({
+        _id: req.params.id
+    }, req.body, function (err, car) {
+        if(err) {
+            return;
+        }
+
+        res.redirect('/car');
+    });
+};
+
+exports.remove = function (req, res) {
+    Car.remove({
+        _id: req.params.id
+    }, function (err) {
+        if(err) {
+            return;
+        }
+
+        res.redirect('/car');
+    });
 };
