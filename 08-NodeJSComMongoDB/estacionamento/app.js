@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodoverride = require('method-override');
 var hbs = require('hbs');
+var session = require('express-session');
 var connection = require('./models');
 
 var index = require('./routes/index');
@@ -26,6 +27,9 @@ hbs.registerHelper('equals', function (val1, val2, options) {
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(session({
+    secret: 'estacionamento'
+}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

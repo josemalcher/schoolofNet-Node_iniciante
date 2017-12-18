@@ -1341,6 +1341,161 @@ exports.remove = function (req, res) {
 
 ## <a name="parte14">Projeto Final - Autenticação via session</a>
 
+### models user.js
+```javascript
+var mongoose = require('mongoose');
+
+var User = mongoose.Schema({
+    username:{
+        type: String,
+        required: true
+    },
+    password:{
+        type: String,
+        required: true
+    }
+});
+
+module.exports = mongoose.model('User', User);
+```
+
+### routes/users.js
+```javascript
+var express = require('express');
+var router = express.Router();
+var service = require('./../services/users');
+
+router.get('/login', service.login);
+router.get('/register', service.register);
+router.post('/signin', service.signin);
+router.post('/create', service.create);
+
+module.exports = router;
+```
+
+### services/users.js
+```javascript
+var User = require('./../models/user');
+
+exports.login = function(req, res) {
+    res.render('login');
+};
+
+exports.signin = function (req, res) {
+    User.findOne({
+        username: req.body.username,
+        password: req.body.password
+    }, function (err, user) {
+        if(err) {
+            return;
+        }
+
+        req.session.user = {
+            username: user.username
+        };
+
+        res.redirect('/');
+    })
+};
+
+exports.register = function(req, res) {
+    res.render('register');
+};
+
+exports.create = function(req, res) {
+    User.create(req.body, function (err, user) {
+        if(err) {
+            return;
+        }
+
+        res.redirect('/users/login');
+    })
+};
+```
+
+### services/index.js
+```javascript
+exports.index = function (req, res) {
+    res.render('index', {
+        user: req.session.user
+    });
+};
+```
+
+### app.js
+```javascript
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var methodoverride = require('method-override');
+var hbs = require('hbs');
+var session = require('express-session');
+var connection = require('./models');
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+var cars = require('./routes/car');
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+//Helppers HBS
+hbs.registerHelper('equals', function (val1, val2, options) {
+    return val1 == val2 ? options.fn(this) : options.inverse(this);
+});
+
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(session({
+    secret: 'estacionamento'
+}));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodoverride(function (req, res, next) { //middleware
+    if (req.body && typeof req.body == 'object' && req.body._method){
+        var method = req.body._method;
+
+        delete req.body._method;
+
+        return method;
+    }
+}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', index);
+app.use('/users', users);
+app.use('/car', cars);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
+
+```
 
 [Voltar ao Índice](#indice)
 
