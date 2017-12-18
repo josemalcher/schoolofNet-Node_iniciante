@@ -1163,6 +1163,8 @@ exports.index = function (req, res) {
 
 ## <a name="parte12">Projeto Final - Montando nossas views</a>
 
+### Ajuste nos arquivos da views/ *.hbs
+
 
 [Voltar ao Índice](#indice)
 
