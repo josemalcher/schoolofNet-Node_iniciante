@@ -9,7 +9,7 @@ https://www.schoolofnet.com/plano-de-estudo-node-iniciante/
 [5 - Node.js básico](https://github.com/josemalcher/schoolofNet-Node_iniciante/tree/master/05-NodeJsBasico)       | :ok_hand:       
 [6 - Node com Express.js ](https://github.com/josemalcher/schoolofNet-Node_iniciante/tree/master/06-NodeComExpressJS)       | :ok_hand:              
 [7 - Iniciando com MongoDB](https://github.com/josemalcher/schoolofNet-Node_iniciante/tree/master/07-IniciandoComMongoDB)          | :ok_hand:        
-[8 - Node.js com MongoDB](https://github.com/josemalcher/schoolofNet-Node_iniciante/tree/master/08-NodeJSComMongoDB)                  | :eyes:         
+[8 - Node.js com MongoDB](https://github.com/josemalcher/schoolofNet-Node_iniciante/tree/master/08-NodeJSComMongoDB)          | :ok_hand:                 
     
 
 ---
